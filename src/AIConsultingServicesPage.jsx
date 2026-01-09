@@ -42,8 +42,7 @@ export default function AIConsultingServicesPage() {
     setIsSubmitting(true);
 
     try {
-      // TODO: Replace YOUR_FORM_ID with your Formspree form ID after creating one at https://formspree.io
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      const response = await fetch('https://formspree.io/f/mojjaeov', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
