@@ -30,45 +30,8 @@ import {
 } from 'lucide-react';
 
 export default function AIConsultingServicesPage() {
-  const [formData, setFormData] = useState({ name: '', email: '', company: '', challenge: '', companySize: '' });
-  const [submitted, setSubmitted] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
   const [activeLevel, setActiveLevel] = useState(1);
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch('https://formspree.io/f/mojjaeov', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          companySize: formData.companySize,
-          challenge: formData.challenge,
-          _subject: `New AI Consultation Request from ${formData.name} at ${formData.company}`,
-        }),
-      });
-
-      if (response.ok) {
-        setSubmitted(true);
-        setFormData({ name: '', email: '', company: '', challenge: '', companySize: '' });
-      } else {
-        alert('Something went wrong. Please try again or call (210) 802-8945.');
-      }
-    } catch (error) {
-      alert('Something went wrong. Please try again or call (210) 802-8945.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -212,8 +175,8 @@ export default function AIConsultingServicesPage() {
             <a href="#how-it-works" className="text-slate-600 hover:text-blue-600 transition font-medium">How It Works</a>
             <a href="#results" className="text-slate-600 hover:text-blue-600 transition font-medium">Results</a>
             <a href="#faq" className="text-slate-600 hover:text-blue-600 transition font-medium">FAQ</a>
-            <a href="#contact" className="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition">
-              Free Assessment
+            <a href="https://calendly.com/aiconsultingsa-com/free-ai-audit-call" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition">
+              Book Free Call
             </a>
           </div>
           <div className="flex items-center gap-2 text-slate-600 md:hidden">
@@ -267,8 +230,8 @@ export default function AIConsultingServicesPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="#contact" className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-blue-600 hover:to-cyan-600 transition flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25">
-                  Get Your Free AI Assessment
+                <a href="https://calendly.com/aiconsultingsa-com/free-ai-audit-call" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-blue-600 hover:to-cyan-600 transition flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25">
+                  Book Your Free 15-Min Call
                   <ArrowRight className="w-5 h-5" />
                 </a>
                 <a href="#services" className="border-2 border-slate-400 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition text-center">
@@ -482,10 +445,12 @@ export default function AIConsultingServicesPage() {
                     </div>
 
                     <a
-                      href="#contact"
+                      href="https://calendly.com/aiconsultingsa-com/free-ai-audit-call"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="mt-8 w-full bg-blue-600 text-white py-4 rounded-xl font-semibold hover:bg-blue-700 transition flex items-center justify-center gap-2"
                     >
-                      Discuss Level {service.level} Solutions
+                      Book a Call — Level {service.level}
                       <ArrowRight className="w-5 h-5" />
                     </a>
                   </div>
@@ -883,7 +848,7 @@ export default function AIConsultingServicesPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section with Calendly */}
       <section id="contact" className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 opacity-20">
@@ -894,125 +859,40 @@ export default function AIConsultingServicesPage() {
         <div className="max-w-4xl mx-auto px-6 relative">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to Transform Your Operations with AI?
+              Book Your Free 15-Minute AI Audit
             </h2>
             <p className="text-xl text-slate-300 mb-4">
-              Schedule your free AI assessment. In 30 minutes, you'll know exactly where AI can
-              save you money and make you more competitive.
+              In 15 minutes, you'll know exactly where AI can save you time and money.
+              No sales pitch—just honest assessment of your biggest opportunities.
             </p>
             <p className="text-lg text-blue-300 font-medium">
-              Local San Antonio meetings available—let's talk in person.
+              I'll call you at your scheduled time. Local San Antonio meetings also available.
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl p-8 md:p-12 shadow-2xl text-slate-900">
-            {!submitted ? (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-slate-700 font-semibold mb-2">Full Name *</label>
-                    <input
-                      type="text"
-                      required
-                      className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-blue-500 focus:outline-none transition"
-                      value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      placeholder="John Smith"
-                    />
-                  </div>
+          {/* Calendly Inline Widget */}
+          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div
+              className="calendly-inline-widget"
+              data-url="https://calendly.com/aiconsultingsa-com/free-ai-audit-call?hide_gdpr_banner=1&background_color=ffffff&text_color=1e293b&primary_color=2563eb"
+              style={{ minWidth: '320px', height: '700px' }}
+            />
+          </div>
 
-                  <div>
-                    <label className="block text-slate-700 font-semibold mb-2">Email Address *</label>
-                    <input
-                      type="email"
-                      required
-                      className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-blue-500 focus:outline-none transition"
-                      value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      placeholder="john@company.com"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-slate-700 font-semibold mb-2">Company Name *</label>
-                    <input
-                      type="text"
-                      required
-                      className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-blue-500 focus:outline-none transition"
-                      value={formData.company}
-                      onChange={(e) => setFormData({...formData, company: e.target.value})}
-                      placeholder="Your Company Inc."
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-slate-700 font-semibold mb-2">Company Size</label>
-                    <select
-                      className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-blue-500 focus:outline-none transition bg-white"
-                      value={formData.companySize}
-                      onChange={(e) => setFormData({...formData, companySize: e.target.value})}
-                    >
-                      <option value="">Select size...</option>
-                      <option value="1-10">1-10 employees</option>
-                      <option value="11-50">11-50 employees</option>
-                      <option value="51-200">51-200 employees</option>
-                      <option value="201-500">201-500 employees</option>
-                      <option value="500+">500+ employees</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-slate-700 font-semibold mb-2">
-                    What's your biggest operational challenge right now? *
-                  </label>
-                  <textarea
-                    required
-                    rows={4}
-                    className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-blue-500 focus:outline-none transition"
-                    value={formData.challenge}
-                    onChange={(e) => setFormData({...formData, challenge: e.target.value})}
-                    placeholder="Tell me about the manual processes slowing you down, the opportunities you're missing, or the problems you'd love AI to solve..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 px-8 rounded-xl font-bold text-lg hover:from-blue-700 hover:to-indigo-700 transition flex items-center justify-center gap-2 shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? 'Sending...' : 'Schedule My Free AI Assessment'}
-                  {!isSubmitting && <ArrowRight className="w-5 h-5" />}
-                </button>
-
-                <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
-                  <div className="flex items-center gap-2">
-                    <Shield className="w-4 h-4" />
-                    <span>100% Satisfaction Guarantee</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4" />
-                    <span>30-minute assessment</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4" />
-                    <span>No obligation</span>
-                  </div>
-                </div>
-              </form>
-            ) : (
-              <div className="text-center py-12">
-                <div className="bg-green-100 text-green-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
-                  <Check className="w-12 h-12" />
-                </div>
-                <h3 className="text-3xl font-bold text-slate-900 mb-4">Thank You!</h3>
-                <p className="text-xl text-slate-600">
-                  I'll reach out within 24 hours to schedule your free AI assessment.
-                </p>
-              </div>
-            )}
+          {/* Trust Signals */}
+          <div className="flex flex-wrap justify-center gap-8 mt-8 text-slate-300">
+            <div className="flex items-center gap-2">
+              <Shield className="w-5 h-5 text-green-400" />
+              <span>100% Satisfaction Guarantee</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Clock className="w-5 h-5 text-blue-400" />
+              <span>15 minutes, no obligation</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Phone className="w-5 h-5 text-amber-400" />
+              <span>I call you</span>
+            </div>
           </div>
         </div>
       </section>
