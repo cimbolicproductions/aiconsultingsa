@@ -123,16 +123,16 @@ export default function AIConsultingServicesPage() {
       answer: "Level 1 (Education) clients typically see immediate time savings—often 30%+ within the first week. Level 2 (Integration) projects usually achieve full ROI within 3-6 months. Level 3 (Custom) implementations vary but are designed with clear ROI milestones. We don't build systems without defining measurable success criteria upfront."
     },
     {
-      question: "What industries do you work with?",
-      answer: "We specialize in operational industries: construction, manufacturing, logistics, wholesale, energy, and facilities management. These sectors have massive AI opportunities with clear, measurable ROI—and without the regulatory complexity of healthcare or finance. Our solutions focus on operational data, not personal information."
+      question: "What kind of San Antonio businesses do you work with?",
+      answer: "Small business owners across the SA metro—trades (HVAC, plumbing, electrical, roofing), small fleets and logistics ops, equipment rental, distribution, construction subs, and family-run service businesses. If you're a 5-50 person operation drowning in paperwork, missing after-hours calls, or stuck on manual data entry, you're who I built this for. I don't take healthcare or finance work—the compliance overhead doesn't fit a small-business budget."
     },
     {
       question: "What if we're not sure which level we need?",
       answer: "That's exactly what our free AI assessment is for. In a 30-minute conversation, we'll map your current operations, identify the biggest opportunities, and recommend the right starting point. Many clients start with Level 1 to get quick wins and build confidence, then graduate to more sophisticated solutions."
     },
     {
-      question: "Do you work with businesses outside San Antonio?",
-      answer: "Yes, we serve clients across Texas and nationally for virtual engagements. However, we offer special advantages for San Antonio and South Texas businesses—including on-site workshops, face-to-face strategy sessions, and hands-on training at your facility."
+      question: "Do you work with businesses outside the San Antonio metro?",
+      answer: "I work with businesses within about an hour's drive of San Antonio—that includes Boerne, New Braunfels, San Marcos, Schertz, Converse, Seguin, and the surrounding metro. The whole point of how I work is that I show up in person: drink coffee at your shop, sit with your office manager while she's drowning in paperwork, ride along with a tech to see the real workflow. That doesn't translate to remote engagements 500 miles away. If you're outside the metro and still interested, send me a note anyway and I'll be honest about whether I can help."
     },
     {
       question: "What's the difference between 'deterministic' and 'probabilistic' AI?",
@@ -142,25 +142,25 @@ export default function AIConsultingServicesPage() {
 
   const testimonials = [
     {
-      quote: "We went from 3-week bid turnaround to same-day quotes. The AI system analyzes blueprints and generates accurate estimates automatically. We're winning 40% more projects because we respond faster than competitors.",
-      author: "Mike Rodriguez",
-      role: "Commercial Construction",
-      location: "San Antonio",
-      result: "40% more project wins"
+      quote: "Built to chew through thousand-page construction spec books and spit out organized takeoff spreadsheets in minutes instead of days. Multi-pass AI extraction handles the kind of paperwork mountain your project admin is drowning in right now. This is what I build for clients—real software, not slide decks.",
+      author: "Ironclad Specs",
+      role: "PDF → Spreadsheet Automation",
+      location: "Built in San Antonio",
+      result: "Spec parser in production"
     },
     {
-      quote: "The AI system is great, but the training made the real difference. Our maintenance team went from reactive firefighting to proactive planning. They're proud of their new skills and we cut downtime 65%.",
-      author: "Jennifer Chen",
-      role: "Manufacturing Operations",
-      location: "San Antonio",
-      result: "65% downtime reduction"
+      quote: "I run an AI voice agent on my own business line via Twilio. It picks up when I'm driving, takes messages, books calls, and texts me a summary. Same setup I'll build for your shop: your office manager stops dropping calls and after-hours leads stop going to voicemail.",
+      author: "AI Voice Agent",
+      role: "Twilio Call Automation",
+      location: "Running daily",
+      result: "Never miss a call again"
     },
     {
-      quote: "Route optimization AI reduced our fuel costs 28% and our drivers make 30% more deliveries per day. The system adapts in real-time to traffic and weather. This paid for itself in 6 weeks.",
-      author: "Carlos Martinez",
-      role: "Distribution & Logistics",
+      quote: "I rent washers and dryers as a side business and wrote my own admin app to run it: unit tracking, multilingual SMS reminders (English/Spanish), Stripe payments. Small-business ops software I use every week. I know your back office because I run one.",
+      author: "Rental Ops App",
+      role: "Stripe + Bilingual SMS",
       location: "San Antonio",
-      result: "28% fuel cost savings"
+      result: "Internal tool in daily use"
     }
   ];
 
@@ -199,7 +199,7 @@ export default function AIConsultingServicesPage() {
             <div>
               <div className="inline-flex items-center gap-2 bg-blue-500/20 text-blue-200 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-blue-400/30">
                 <MapPin className="w-4 h-4" />
-                Serving San Antonio & South Texas Businesses
+                Serving the San Antonio Metro
               </div>
 
               {/* H1 - Primary Keyword Target */}
@@ -755,12 +755,12 @@ export default function AIConsultingServicesPage() {
       <section id="results" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Proven Results</span>
+            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Built, Not Pitched</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">
-              AI Integration Services That Deliver
+              Real Software I've Shipped — Same Stack I'll Build for You
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Real businesses. Measurable outcomes. Not promises—proof.
+              Most AI consultants sell you slides. I'll show you working systems I built with my own hands. The proof is the portfolio.
             </p>
           </div>
 
