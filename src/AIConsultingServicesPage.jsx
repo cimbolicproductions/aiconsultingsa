@@ -952,15 +952,19 @@ export default function AIConsultingServicesPage() {
         </div>
       </footer>
 
-      {/* Schema.org Structured Data - For SEO */}
+      {/* Schema.org Structured Data - LocalBusiness + ProfessionalService */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "ProfessionalService",
+          "@type": ["ProfessionalService", "LocalBusiness"],
+          "@id": "https://aiconsultingsa.com/#business",
           "name": "AI Consulting SA",
-          "description": "AI consulting services for San Antonio businesses. Custom AI implementation, business automation, and team training with 100% satisfaction guarantee.",
+          "description": "San Antonio AI consultant who builds custom workflows, Twilio phone bots, paperwork automation, and team training for small businesses. Save 10+ hours a week with hands-on implementation — not just advice.",
           "url": "https://aiconsultingsa.com",
           "telephone": "+1-210-802-8945",
+          "priceRange": "$$",
+          "image": "https://aiconsultingsa.com/og-image.png",
+          "logo": "https://aiconsultingsa.com/favicon.png",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "San Antonio",
@@ -973,19 +977,57 @@ export default function AIConsultingServicesPage() {
             "longitude": "-98.4936"
           },
           "areaServed": [
-            "San Antonio",
-            "South Texas",
-            "Austin",
-            "Texas"
+            { "@type": "City", "name": "San Antonio", "containedInPlace": { "@type": "State", "name": "Texas" } },
+            { "@type": "City", "name": "Boerne" },
+            { "@type": "City", "name": "New Braunfels" },
+            { "@type": "City", "name": "San Marcos" },
+            { "@type": "City", "name": "Schertz" },
+            { "@type": "City", "name": "Converse" },
+            { "@type": "City", "name": "Seguin" },
+            { "@type": "City", "name": "Helotes" },
+            { "@type": "City", "name": "Universal City" }
           ],
+          "serviceArea": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+              "@type": "GeoCoordinates",
+              "latitude": "29.4241",
+              "longitude": "-98.4936"
+            },
+            "geoRadius": "75000"
+          },
+          "knowsLanguage": ["en", "es"],
           "serviceType": [
             "AI Consulting",
-            "AI Implementation",
-            "Business Automation",
-            "Custom AI Development",
-            "AI Training"
+            "AI Workflow Automation",
+            "Small Business Automation",
+            "AI Phone Answering",
+            "Twilio Voice AI",
+            "AI Team Training",
+            "Custom AI Development"
           ],
-          "priceRange": "$$$"
+          "openingHoursSpecification": [{
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "18:00"
+          }]
+        })
+      }} />
+
+      {/* Schema.org Structured Data - FAQPage */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.answer
+            }
+          }))
         })
       }} />
     </div>
