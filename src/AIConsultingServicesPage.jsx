@@ -963,7 +963,7 @@ export default function AIConsultingServicesPage() {
           "url": "https://aiconsultingsa.com",
           "telephone": "+1-210-802-8945",
           "priceRange": "$$",
-          "image": "https://aiconsultingsa.com/og-image.png",
+          "image": "https://aiconsultingsa.com/og-image.jpg",
           "logo": "https://aiconsultingsa.com/favicon.png",
           "address": {
             "@type": "PostalAddress",
