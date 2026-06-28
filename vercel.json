@@ -13,6 +13,16 @@
       "permanent": true
     },
     {
+      "source": "/ai-document-automation-san-antonio/index.html",
+      "destination": "https://aiconsultingsa.com/ai-document-automation-san-antonio/",
+      "permanent": true
+    },
+    {
+      "source": "/small-business-automation-san-antonio/index.html",
+      "destination": "https://aiconsultingsa.com/small-business-automation-san-antonio/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.aiconsultingsa.com" }],
       "destination": "https://aiconsultingsa.com/:path*",

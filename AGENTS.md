@@ -19,6 +19,7 @@ npm run dev
 - Public crawl files live in `public/robots.txt` and `public/sitemap.xml`.
 - Vercel canonical redirects live in `vercel.json`.
 - The static long-tail page is `public/ai-phone-answering/index.html`.
+- Static long-tail pages under `public/<slug>/index.html` must be verified with `npm run build` plus `npm run preview`; Vite dev may serve the React homepage fallback for trailing slash routes like `/ai-phone-answering/`.
 - Keep sitemap URLs canonical and absolute. For GSC domain properties, submit the full sitemap URL: `https://aiconsultingsa.com/sitemap.xml`.
 
 ## Memory And Closeout Rules

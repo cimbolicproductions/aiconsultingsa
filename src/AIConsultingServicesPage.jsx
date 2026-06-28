@@ -1,1035 +1,408 @@
 import React, { useState } from 'react';
 import {
   ArrowRight,
+  Bot,
+  CalendarCheck,
   Check,
-  Zap,
-  Target,
-  TrendingUp,
-  Shield,
-  MapPin,
-  Phone,
-  Mail,
-  Star,
-  Lightbulb,
-  Settings,
-  Cpu,
-  Users,
-  Clock,
-  DollarSign,
   ChevronDown,
   ChevronUp,
-  Play,
-  BookOpen,
+  ClipboardList,
+  FileText,
+  MapPin,
+  MessageSquare,
+  Phone,
+  PhoneCall,
   Workflow,
-  Code,
-  Brain,
-  Building2,
-  Factory,
-  Truck,
-  Wrench
+  Wrench,
 } from 'lucide-react';
 
+const calendlyUrl = 'https://calendly.com/aiconsultingsa-com/free-ai-audit-call';
+
+const services = [
+  {
+    title: 'AI phone answering',
+    keyword: 'AI phone answering for small business',
+    href: '/ai-phone-answering/',
+    icon: PhoneCall,
+    problem: 'Calls hit voicemail while you are on a job, in a truck, or already helping another customer.',
+    solution: 'A Twilio based AI receptionist answers, qualifies the caller, books the next step, and texts you a clean summary.',
+  },
+  {
+    title: 'Document automation',
+    keyword: 'AI document automation San Antonio',
+    href: '/ai-document-automation-san-antonio/',
+    icon: FileText,
+    problem: 'PDFs, spec books, invoices, and intake forms keep turning into manual spreadsheet work.',
+    solution: 'I build guarded extraction workflows that read the paperwork, structure the data, flag exceptions, and keep a human in the loop.',
+  },
+  {
+    title: 'Back office workflows',
+    keyword: 'Small business automation San Antonio',
+    href: '/small-business-automation-san-antonio/',
+    icon: Workflow,
+    problem: 'Your CRM, calendar, inbox, quotes, and follow ups all work, but none of them work together.',
+    solution: 'I connect the steps your team repeats every week so leads, jobs, reminders, and reports move without copy paste work.',
+  },
+];
+
+const proofItems = [
+  {
+    title: 'AI voice agent on my own line',
+    text: 'I run a Twilio voice agent for my own business calls. It picks up when I cannot, captures the details, and sends me the summary.',
+  },
+  {
+    title: 'PDF to spreadsheet automation',
+    text: 'I have built software that turns long construction spec documents into organized spreadsheet output for review.',
+  },
+  {
+    title: 'Small business ops software',
+    text: 'I run a local rental operation and built the admin tools behind it: unit tracking, SMS reminders, and Stripe payments.',
+  },
+];
+
+const processSteps = [
+  {
+    title: 'Walk the real workflow',
+    text: 'We start with the job as it happens today: calls, paperwork, follow ups, handoffs, and the places work gets stuck.',
+    icon: ClipboardList,
+  },
+  {
+    title: 'Pick one high leverage build',
+    text: 'I do not start with a giant transformation plan. We choose one bottleneck where automation can quickly prove itself.',
+    icon: Wrench,
+  },
+  {
+    title: 'Build the working system',
+    text: 'I wire the AI, rules, integrations, logging, and handoff points so the system behaves predictably in real use.',
+    icon: Bot,
+  },
+  {
+    title: 'Train and tune with your team',
+    text: 'You get the workflow, the documentation, and the tuning pass after it touches real calls, documents, or leads.',
+    icon: CalendarCheck,
+  },
+];
+
+const faqs = [
+  {
+    question: 'What kind of San Antonio businesses are the best fit?',
+    answer:
+      'I work best with 5 to 50 person service businesses around San Antonio: contractors, rental operators, small fleets, distributors, repair shops, and local companies with calls, paperwork, quotes, and follow ups to manage.',
+  },
+  {
+    question: 'Is this strategy consulting or implementation?',
+    answer:
+      'Implementation. I will help you choose the right first project, but the goal is a working AI workflow your team can use. You are hiring a builder, not someone to leave you with a slide deck.',
+  },
+  {
+    question: 'Do we need to replace our current software?',
+    answer:
+      'Usually no. The best first projects connect what you already use: phone, email, calendar, CRM, spreadsheets, forms, Stripe, or job management tools.',
+  },
+  {
+    question: 'Do you work outside San Antonio?',
+    answer:
+      'I focus on businesses within about an hour of San Antonio because seeing the real workflow in person matters. That includes Boerne, New Braunfels, San Marcos, Schertz, Converse, Seguin, Helotes, and nearby areas.',
+  },
+  {
+    question: 'How much does a project cost?',
+    answer:
+      'Small focused builds often start in the low thousands. Larger workflow and document automation projects depend on the number of tools, edge cases, and training needs. The first call is to see whether there is a strong enough use case before we talk scope.',
+  },
+];
+
 export default function AIConsultingServicesPage() {
-  const [openFaq, setOpenFaq] = useState(null);
-  const [activeLevel, setActiveLevel] = useState(1);
-
-  const toggleFaq = (index) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
-
-  const serviceLevels = [
-    {
-      level: 1,
-      title: "AI Education & Feature Discovery",
-      subtitle: "Unlock Hidden Value in Tools You Already Have",
-      icon: <Lightbulb className="w-8 h-8" />,
-      description: "Most businesses use less than 20% of the AI capabilities already available to them. We show you the features that save hours instantly—no new systems required.",
-      coreQuestion: '"Did you know your existing tools can do THIS?"',
-      outcomes: [
-        "30%+ time savings from day one",
-        "Zero development work required",
-        "Immediate ROI with no learning curve",
-        "Team confidence using AI daily"
-      ],
-      examples: [
-        "Automating report generation in Excel with AI",
-        "Using ChatGPT features most people never discover",
-        "Extracting data from documents automatically",
-        "Creating templates that save 10+ hours weekly"
-      ],
-      timeline: "1-2 weeks",
-      investment: "Starting at $5,000",
-      bestFor: "Companies new to AI or wanting quick wins"
-    },
-    {
-      level: 2,
-      title: "Systems Integration (No-Code/Low-Code)",
-      subtitle: "Connect Your Tools Into Automated Workflows",
-      icon: <Workflow className="w-8 h-8" />,
-      description: "We connect your existing software—CRM, project management, accounting, email—into intelligent workflows that move information automatically with AI processing at each step.",
-      coreQuestion: '"What if your systems talked to each other automatically?"',
-      outcomes: [
-        "Eliminate manual data entry between systems",
-        "Automated notifications and escalations",
-        "AI-powered routing and decision support",
-        "50-70% reduction in administrative overhead"
-      ],
-      examples: [
-        "Quote requests → AI analysis → Auto-generated proposals",
-        "Customer inquiries → Smart routing → Auto-responses",
-        "Invoice processing → Approval workflows → Accounting sync",
-        "Project updates → Stakeholder notifications → Report generation"
-      ],
-      timeline: "4-8 weeks",
-      investment: "Starting at $15,000",
-      bestFor: "Companies with multiple software tools that don't communicate"
-    },
-    {
-      level: 3,
-      title: "Custom AI Orchestration",
-      subtitle: "Purpose-Built Solutions for Complex Operations",
-      icon: <Code className="w-8 h-8" />,
-      description: "When off-the-shelf won't cut it, we build custom AI architectures that blend deterministic logic (reliable, rule-based code) with probabilistic AI (intelligent, context-aware reasoning) for sophisticated automation.",
-      coreQuestion: '"What would a custom AI system built specifically for YOUR business look like?"',
-      outcomes: [
-        "Handles complexity standard automation can't touch",
-        "Combines strict business rules with AI flexibility",
-        "Scales with your business growth",
-        "Creates genuine competitive advantage"
-      ],
-      examples: [
-        "Custom estimating systems that learn your pricing patterns",
-        "Agentic workflows that handle multi-step operations autonomously",
-        "Predictive systems that forecast demand and optimize resources",
-        "Document intelligence that extracts, validates, and routes automatically"
-      ],
-      timeline: "8-16 weeks",
-      investment: "Starting at $35,000",
-      bestFor: "Companies with unique processes or complex operational needs"
-    }
-  ];
-
-  const faqs = [
-    {
-      question: "How is this different from other AI consulting services?",
-      answer: "Most AI consultants sell you software and disappear. We take a fundamentally different approach: we build systems AND train your team to use them effectively. Our 3-level framework means you get exactly the right solution—not an oversold complex system when simple automation would work, and not a band-aid when you need custom orchestration. Plus, our 100% satisfaction guarantee means you only pay for results."
-    },
-    {
-      question: "Will AI replace my employees?",
-      answer: "No—and this fear is exactly why most AI implementations fail. AI doesn't replace your best people; it makes them unstoppable. Your estimator who took 3 days to quote a project will do it in 4 hours—meaning they can handle 5x more work, not that you fire them. Your team becomes more valuable, not obsolete. That's why half of what we do is training."
-    },
-    {
-      question: "How quickly will we see ROI?",
-      answer: "Level 1 (Education) clients typically see immediate time savings—often 30%+ within the first week. Level 2 (Integration) projects usually achieve full ROI within 3-6 months. Level 3 (Custom) implementations vary but are designed with clear ROI milestones. We don't build systems without defining measurable success criteria upfront."
-    },
-    {
-      question: "What kind of San Antonio businesses do you work with?",
-      answer: "Small business owners across the SA metro—trades (HVAC, plumbing, electrical, roofing), small fleets and logistics ops, equipment rental, distribution, construction subs, and family-run service businesses. If you're a 5-50 person operation drowning in paperwork, missing after-hours calls, or stuck on manual data entry, you're who I built this for. I don't take healthcare or finance work—the compliance overhead doesn't fit a small-business budget."
-    },
-    {
-      question: "What if we're not sure which level we need?",
-      answer: "That's exactly what our free AI assessment is for. In a 30-minute conversation, we'll map your current operations, identify the biggest opportunities, and recommend the right starting point. Many clients start with Level 1 to get quick wins and build confidence, then graduate to more sophisticated solutions."
-    },
-    {
-      question: "Do you work with businesses outside the San Antonio metro?",
-      answer: "I work with businesses within about an hour's drive of San Antonio—that includes Boerne, New Braunfels, San Marcos, Schertz, Converse, Seguin, and the surrounding metro. The whole point of how I work is that I show up in person: drink coffee at your shop, sit with your office manager while she's drowning in paperwork, ride along with a tech to see the real workflow. That doesn't translate to remote engagements 500 miles away. If you're outside the metro and still interested, send me a note anyway and I'll be honest about whether I can help."
-    },
-    {
-      question: "What's the difference between 'deterministic' and 'probabilistic' AI?",
-      answer: "Great question—this is key to understanding Level 3. Deterministic code follows strict rules: 'if X happens, do Y.' It's reliable and predictable. Probabilistic AI (like ChatGPT) handles nuance, makes judgment calls, and adapts to context—but can be unpredictable. The magic happens when you blend both: deterministic logic controls the process and ensures reliability, while AI handles the variable, context-dependent parts. This is what separates amateur automation from production-grade AI systems."
-    }
-  ];
-
-  const testimonials = [
-    {
-      quote: "Built to chew through thousand-page construction spec books and spit out organized takeoff spreadsheets in minutes instead of days. Multi-pass AI extraction handles the kind of paperwork mountain your project admin is drowning in right now. This is what I build for clients—real software, not slide decks.",
-      author: "Ironclad Specs",
-      role: "PDF → Spreadsheet Automation",
-      location: "Built in San Antonio",
-      result: "Spec parser in production"
-    },
-    {
-      quote: "I run an AI voice agent on my own business line via Twilio. It picks up when I'm driving, takes messages, books calls, and texts me a summary. Same setup I'll build for your shop: your office manager stops dropping calls and after-hours leads stop going to voicemail.",
-      author: "AI Voice Agent",
-      role: "Twilio Call Automation",
-      location: "Running daily",
-      result: "Never miss a call again"
-    },
-    {
-      quote: "I rent washers and dryers as a side business and wrote my own admin app to run it: unit tracking, multilingual SMS reminders (English/Spanish), Stripe payments. Small-business ops software I use every week. I know your back office because I run one.",
-      author: "Rental Ops App",
-      role: "Stripe + Bilingual SMS",
-      location: "San Antonio",
-      result: "Internal tool in daily use"
-    }
-  ];
+  const [openFaq, setOpenFaq] = useState(0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur sticky top-0 z-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold text-slate-900">AI Consulting SA</div>
-          <div className="hidden md:flex gap-8 items-center">
-            <a href="#services" className="text-slate-600 hover:text-blue-600 transition font-medium">Services</a>
-            <a href="#how-it-works" className="text-slate-600 hover:text-blue-600 transition font-medium">How It Works</a>
-            <a href="#results" className="text-slate-600 hover:text-blue-600 transition font-medium">Results</a>
-            <a href="#faq" className="text-slate-600 hover:text-blue-600 transition font-medium">FAQ</a>
-            <a href="https://calendly.com/aiconsultingsa-com/free-ai-audit-call" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition">
-              Book Free Call
-            </a>
+    <div className="min-h-screen bg-stone-50 text-slate-950">
+      <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+          <a href="/" className="text-lg font-semibold tracking-tight text-slate-950">
+            AI Consulting SA
+          </a>
+          <div className="hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex">
+            <a href="#services" className="hover:text-slate-950">Services</a>
+            <a href="#proof" className="hover:text-slate-950">Proof</a>
+            <a href="#process" className="hover:text-slate-950">Process</a>
+            <a href="#faq" className="hover:text-slate-950">FAQ</a>
           </div>
-          <div className="flex items-center gap-2 text-slate-600 md:hidden">
-            <MapPin className="w-4 h-4" />
-            <span className="text-sm">San Antonio, TX</span>
-          </div>
+          <a
+            href={calendlyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+          >
+            Book a call
+            <ArrowRight className="h-4 w-4" />
+          </a>
         </div>
       </nav>
 
-      {/* Hero Section - SEO Optimized */}
-      <header className="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-500 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 py-20 md:py-28 relative">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-blue-500/20 text-blue-200 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-blue-400/30">
-                <MapPin className="w-4 h-4" />
-                Serving the San Antonio Metro
-              </div>
-
-              {/* H1 - Primary Keyword Target */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Hire an AI Consultant Who
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400"> Guarantees Results</span>
-              </h1>
-
-              <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
-                AI consulting services that transform how your business operates—from simple automation
-                to custom AI orchestration. <strong className="text-white">100% satisfaction guaranteed or full refund.</strong>
-              </p>
-
-              {/* Trust Signals */}
-              <div className="flex flex-wrap gap-6 mb-8 text-slate-300">
-                <div className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-green-400" />
-                  <span>No long-term contracts</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-green-400" />
-                  <span>Results-based pricing</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-green-400" />
-                  <span>Training included</span>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a href="https://calendly.com/aiconsultingsa-com/free-ai-audit-call" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-blue-600 hover:to-cyan-600 transition flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25">
-                  Book Your Free 15-Min Call
-                  <ArrowRight className="w-5 h-5" />
-                </a>
-                <a href="#services" className="border-2 border-slate-400 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition text-center">
-                  See Our 3-Level Approach
-                </a>
-              </div>
+      <header className="border-b border-slate-200 bg-white">
+        <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-[1.15fr_0.85fr] md:py-24">
+          <div>
+            <div className="mb-5 inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-stone-50 px-3 py-2 text-sm font-medium text-slate-700">
+              <MapPin className="h-4 w-4 text-blue-700" />
+              San Antonio, Boerne, New Braunfels, Schertz, Seguin
             </div>
-
-            {/* Value Props Card */}
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8">
-              <h2 className="text-2xl font-bold mb-6">What Makes Us Different</h2>
-
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="bg-blue-500/30 p-3 rounded-xl h-fit">
-                    <Brain className="w-6 h-6 text-blue-300" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg mb-1">3-Level Framework</h3>
-                    <p className="text-slate-300 text-sm">Right-sized solutions: from quick wins to custom AI orchestration. You get exactly what you need.</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="bg-green-500/30 p-3 rounded-xl h-fit">
-                    <Users className="w-6 h-6 text-green-300" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg mb-1">Team Empowerment</h3>
-                    <p className="text-slate-300 text-sm">AI makes your people 3x more productive—not unemployed. Training is built into every engagement.</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="bg-amber-500/30 p-3 rounded-xl h-fit">
-                    <Shield className="w-6 h-6 text-amber-300" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg mb-1">100% Guarantee</h3>
-                    <p className="text-slate-300 text-sm">If you're not satisfied with measurable results, you don't pay. Period.</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="bg-purple-500/30 p-3 rounded-xl h-fit">
-                    <Cpu className="w-6 h-6 text-purple-300" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg mb-1">Technical Depth</h3>
-                    <p className="text-slate-300 text-sm">Deterministic + probabilistic AI blended for reliable, intelligent automation.</p>
-                  </div>
-                </div>
-              </div>
+            <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-tight text-slate-950 md:text-6xl">
+              AI consultant in San Antonio for service businesses that need working automation.
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">
+              I build AI phone answering, document automation, and back office workflows for local operators who are missing calls, losing time to paperwork, or manually chasing the same follow ups every week.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={calendlyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-700 px-5 py-3 font-semibold text-white hover:bg-blue-800"
+              >
+                Book a free 15 minute call
+                <ArrowRight className="h-5 w-5" />
+              </a>
+              <a
+                href="tel:+12108028945"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 font-semibold text-slate-900 hover:border-slate-500"
+              >
+                <Phone className="h-5 w-5" />
+                Call (210) 802-8945
+              </a>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-3 text-sm text-slate-600">
+              {['No generic AI workshop', 'Built around your tools', 'English and Spanish voice workflows'].map((item) => (
+                <span key={item} className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2">
+                  <Check className="h-4 w-4 text-blue-700" />
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
+
+          <aside className="self-start rounded-lg border border-slate-200 bg-stone-50 p-6">
+            <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">Best fit</p>
+            <h2 className="mt-3 text-2xl font-semibold text-slate-950">Local companies with one painful bottleneck.</h2>
+            <ul className="mt-6 space-y-4 text-slate-700">
+              <li className="flex gap-3">
+                <Check className="mt-1 h-5 w-5 flex-none text-blue-700" />
+                <span>Service calls are going to voicemail or getting returned too late.</span>
+              </li>
+              <li className="flex gap-3">
+                <Check className="mt-1 h-5 w-5 flex-none text-blue-700" />
+                <span>Office staff are buried in PDFs, forms, spreadsheets, and status updates.</span>
+              </li>
+              <li className="flex gap-3">
+                <Check className="mt-1 h-5 w-5 flex-none text-blue-700" />
+                <span>Leads, quotes, appointments, and reminders require too many manual handoffs.</span>
+              </li>
+            </ul>
+            <p className="mt-6 border-t border-slate-200 pt-5 text-sm leading-6 text-slate-600">
+              If the problem can be observed in a normal workday, it can usually be scoped into a focused first build.
+            </p>
+          </aside>
         </div>
       </header>
 
-      {/* Problem Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">The Reality</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">
-              Most Businesses Are Leaving Money on the Table
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              While competitors automate, you're still doing things manually. Every day without AI implementation costs you in ways that hit the bottom line.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-2xl border border-red-100">
-              <div className="text-red-600 font-bold text-5xl mb-4">40%</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Time Wasted on Manual Work</h3>
-              <p className="text-slate-600">
-                Your best people spend nearly half their time on tasks AI can handle in minutes:
-                data entry, report generation, scheduling, and status updates.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-2xl border border-red-100">
-              <div className="text-red-600 font-bold text-5xl mb-4">85%</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">AI Projects Fail</h3>
-              <p className="text-slate-600">
-                Not because the technology doesn't work—but because employees aren't trained to use it.
-                Most consultants deploy and disappear. We train and support.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-2xl border border-red-100">
-              <div className="text-red-600 font-bold text-5xl mb-4">6mo+</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Typical Implementation Time</h3>
-              <p className="text-slate-600">
-                Big consulting firms drag projects out for months. Our Level 1 clients see results
-                in days. Even complex Level 3 projects deliver in 8-16 weeks.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* The 3-Level Framework - Core Service Section */}
-      <section id="services" className="py-20 bg-gradient-to-b from-slate-50 to-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Our Approach</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">
-              AI Consulting Services Built Around Your Actual Needs
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Not every business needs custom AI development. Our 3-level framework ensures you get
-              exactly the right solution—no overselling, no underselling.
-            </p>
-          </div>
-
-          {/* Level Selector Tabs */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {serviceLevels.map((service, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveLevel(idx + 1)}
-                className={`px-6 py-3 rounded-xl font-semibold transition-all ${
-                  activeLevel === idx + 1
-                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/25'
-                    : 'bg-white text-slate-600 border-2 border-slate-200 hover:border-blue-300'
-                }`}
-              >
-                <span className="hidden sm:inline">Level {service.level}: </span>{service.title.split(' ').slice(0, 2).join(' ')}
-              </button>
-            ))}
-          </div>
-
-          {/* Active Level Detail */}
-          {serviceLevels.map((service, idx) => (
-            activeLevel === idx + 1 && (
-              <div key={idx} className="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
-                <div className="grid lg:grid-cols-2">
-                  {/* Left Side - Overview */}
-                  <div className="p-8 lg:p-12">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className={`p-4 rounded-2xl ${
-                        idx === 0 ? 'bg-amber-100 text-amber-600' :
-                        idx === 1 ? 'bg-blue-100 text-blue-600' :
-                        'bg-purple-100 text-purple-600'
-                      }`}>
-                        {service.icon}
-                      </div>
-                      <div>
-                        <div className="text-sm font-semibold text-slate-500">LEVEL {service.level}</div>
-                        <h3 className="text-2xl font-bold text-slate-900">{service.title}</h3>
-                      </div>
-                    </div>
-
-                    <p className="text-lg text-slate-700 mb-6">{service.subtitle}</p>
-
-                    <p className="text-slate-600 mb-6">{service.description}</p>
-
-                    <div className="bg-slate-50 rounded-xl p-4 mb-6 border-l-4 border-blue-500">
-                      <p className="text-slate-700 font-medium italic">{service.coreQuestion}</p>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div className="bg-slate-50 rounded-xl p-4">
-                        <Clock className="w-5 h-5 text-slate-500 mb-2" />
-                        <div className="text-sm text-slate-500">Timeline</div>
-                        <div className="font-bold text-slate-900">{service.timeline}</div>
-                      </div>
-                      <div className="bg-slate-50 rounded-xl p-4">
-                        <DollarSign className="w-5 h-5 text-slate-500 mb-2" />
-                        <div className="text-sm text-slate-500">Investment</div>
-                        <div className="font-bold text-slate-900">{service.investment}</div>
-                      </div>
-                    </div>
-
-                    <div className="text-sm text-slate-600 bg-blue-50 rounded-xl p-4">
-                      <strong className="text-blue-700">Best for:</strong> {service.bestFor}
-                    </div>
-                  </div>
-
-                  {/* Right Side - Outcomes & Examples */}
-                  <div className="bg-slate-50 p-8 lg:p-12">
-                    <div className="mb-8">
-                      <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
-                        <TrendingUp className="w-5 h-5 text-green-600" />
-                        What You Get
-                      </h4>
-                      <ul className="space-y-3">
-                        {service.outcomes.map((outcome, i) => (
-                          <li key={i} className="flex items-start gap-3">
-                            <Check className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                            <span className="text-slate-700">{outcome}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
-                        <Zap className="w-5 h-5 text-amber-600" />
-                        Real Examples
-                      </h4>
-                      <ul className="space-y-3">
-                        {service.examples.map((example, i) => (
-                          <li key={i} className="flex items-start gap-3">
-                            <ArrowRight className="w-4 h-4 text-blue-600 mt-1 flex-shrink-0" />
-                            <span className="text-slate-600 text-sm">{example}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <a
-                      href="https://calendly.com/aiconsultingsa-com/free-ai-audit-call"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-8 w-full bg-blue-600 text-white py-4 rounded-xl font-semibold hover:bg-blue-700 transition flex items-center justify-center gap-2"
-                    >
-                      Book a Call — Level {service.level}
-                      <ArrowRight className="w-5 h-5" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            )
-          ))}
-
-          {/* All Levels Comparison */}
-          <div className="mt-16">
-            <h3 className="text-2xl font-bold text-center text-slate-900 mb-8">Quick Comparison</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full bg-white rounded-2xl shadow-lg border border-slate-200">
-                <thead>
-                  <tr className="bg-slate-50 border-b border-slate-200">
-                    <th className="text-left p-4 font-semibold text-slate-900">Feature</th>
-                    <th className="p-4 font-semibold text-amber-600">Level 1: Education</th>
-                    <th className="p-4 font-semibold text-blue-600">Level 2: Integration</th>
-                    <th className="p-4 font-semibold text-purple-600">Level 3: Custom</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100">
-                  <tr>
-                    <td className="p-4 text-slate-700 font-medium">Development Required</td>
-                    <td className="p-4 text-center">None</td>
-                    <td className="p-4 text-center">Minimal (no-code)</td>
-                    <td className="p-4 text-center">Full custom</td>
-                  </tr>
-                  <tr>
-                    <td className="p-4 text-slate-700 font-medium">Timeline</td>
-                    <td className="p-4 text-center">1-2 weeks</td>
-                    <td className="p-4 text-center">4-8 weeks</td>
-                    <td className="p-4 text-center">8-16 weeks</td>
-                  </tr>
-                  <tr>
-                    <td className="p-4 text-slate-700 font-medium">Starting Investment</td>
-                    <td className="p-4 text-center">$5,000</td>
-                    <td className="p-4 text-center">$15,000</td>
-                    <td className="p-4 text-center">$35,000</td>
-                  </tr>
-                  <tr>
-                    <td className="p-4 text-slate-700 font-medium">Team Training</td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-green-600 mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-green-600 mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-green-600 mx-auto" /></td>
-                  </tr>
-                  <tr>
-                    <td className="p-4 text-slate-700 font-medium">100% Guarantee</td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-green-600 mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-green-600 mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-green-600 mx-auto" /></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* The Technical Edge Section */}
-      <section className="py-20 bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="text-blue-400 font-semibold text-sm uppercase tracking-wider">The Technical Difference</span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6">
-                Deterministic + Probabilistic AI: Why It Matters
+      <main>
+        <section className="border-b border-slate-200 bg-stone-50 py-16">
+          <div className="mx-auto max-w-6xl px-5">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">Positioning</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+                You do not need another AI demo. You need one stuck workflow fixed.
               </h2>
-
-              <p className="text-slate-300 text-lg mb-6">
-                Most AI implementations fail because they rely entirely on unpredictable generative AI.
-                Our approach blends strict, reliable code with intelligent AI reasoning—giving you the best of both worlds.
+              <p className="mt-5 text-lg leading-8 text-slate-600">
+                The first project should be narrow enough to ship and important enough to matter. A missed call workflow. A document intake workflow. A quote follow up workflow. Once the first one works, the next automation is easier to trust.
               </p>
+            </div>
+          </div>
+        </section>
 
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="bg-blue-500/20 p-3 rounded-xl h-fit">
-                    <Settings className="w-6 h-6 text-blue-400" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg mb-2">Deterministic Logic</h3>
-                    <p className="text-slate-400">
-                      Traditional code that follows strict rules: "If invoice &gt; $10K, require approval."
-                      Reliable, predictable, auditable. Forms the backbone of your automation.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="bg-purple-500/20 p-3 rounded-xl h-fit">
-                    <Brain className="w-6 h-6 text-purple-400" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg mb-2">Probabilistic AI</h3>
-                    <p className="text-slate-400">
-                      Generative AI that handles nuance and context: understanding emails, extracting data
-                      from messy documents, generating human-quality responses. Intelligent but needs guardrails.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="bg-green-500/20 p-3 rounded-xl h-fit">
-                    <Cpu className="w-6 h-6 text-green-400" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg mb-2">The Blend</h3>
-                    <p className="text-slate-400">
-                      Deterministic logic controls the process, ensures business rules are followed, and catches
-                      errors. AI handles the variable, context-dependent parts. Result: reliable intelligence.
-                    </p>
-                  </div>
-                </div>
+        <section id="services" className="bg-white py-16">
+          <div className="mx-auto max-w-6xl px-5">
+            <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">Services</p>
+                <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+                  High intent AI automation services.
+                </h2>
               </div>
+              <p className="max-w-xl text-slate-600">
+                These are separate search intents and separate buyer pains. Each one has its own page so Google and the customer can understand exactly what you do.
+              </p>
             </div>
 
-            <div className="bg-slate-800 rounded-2xl p-8 border border-slate-700">
-              <h3 className="font-bold text-xl mb-6">Example: Smart Document Processing</h3>
+            <div className="grid gap-5 md:grid-cols-3">
+              {services.map((service) => {
+                const Icon = service.icon;
+                return (
+                  <article key={service.title} className="rounded-lg border border-slate-200 bg-white p-6">
+                    <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <p className="mb-2 text-sm font-semibold text-blue-700">{service.keyword}</p>
+                    <h3 className="text-xl font-semibold text-slate-950">{service.title}</h3>
+                    <p className="mt-4 text-sm font-semibold text-slate-500">Problem</p>
+                    <p className="mt-1 leading-7 text-slate-700">{service.problem}</p>
+                    <p className="mt-4 text-sm font-semibold text-slate-500">Build</p>
+                    <p className="mt-1 leading-7 text-slate-700">{service.solution}</p>
+                    <a href={service.href} className="mt-5 inline-flex items-center gap-2 font-semibold text-blue-700 hover:text-blue-900">
+                      Read more
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
 
-              <div className="space-y-4">
-                <div className="bg-slate-700/50 rounded-xl p-4">
-                  <div className="text-xs text-slate-500 uppercase tracking-wider mb-2">Step 1: Deterministic</div>
-                  <p className="text-slate-300 text-sm">Incoming document detected → Route to processing queue → Log receipt timestamp</p>
-                </div>
-
-                <div className="bg-slate-700/50 rounded-xl p-4">
-                  <div className="text-xs text-purple-400 uppercase tracking-wider mb-2">Step 2: Probabilistic AI</div>
-                  <p className="text-slate-300 text-sm">AI reads document → Extracts key data (dates, amounts, parties) → Classifies document type</p>
-                </div>
-
-                <div className="bg-slate-700/50 rounded-xl p-4">
-                  <div className="text-xs text-slate-500 uppercase tracking-wider mb-2">Step 3: Deterministic</div>
-                  <p className="text-slate-300 text-sm">Validate extracted data against business rules → Flag anomalies → Route for approval if needed</p>
-                </div>
-
-                <div className="bg-slate-700/50 rounded-xl p-4">
-                  <div className="text-xs text-purple-400 uppercase tracking-wider mb-2">Step 4: Probabilistic AI</div>
-                  <p className="text-slate-300 text-sm">Generate summary for reviewer → Draft response if needed → Suggest next actions</p>
-                </div>
-
-                <div className="bg-slate-700/50 rounded-xl p-4">
-                  <div className="text-xs text-slate-500 uppercase tracking-wider mb-2">Step 5: Deterministic</div>
-                  <p className="text-slate-300 text-sm">Archive document → Update database → Trigger downstream workflows</p>
-                </div>
-              </div>
-
-              <div className="mt-6 pt-6 border-t border-slate-700">
-                <p className="text-slate-400 text-sm">
-                  <strong className="text-white">Result:</strong> Documents processed in minutes instead of hours,
-                  with 99%+ accuracy and full audit trails. The AI does the thinking; the code ensures reliability.
+        <section id="proof" className="border-y border-slate-200 bg-stone-50 py-16">
+          <div className="mx-auto max-w-6xl px-5">
+            <div className="grid gap-10 md:grid-cols-[0.8fr_1.2fr] md:items-start">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">Proof</p>
+                <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950">
+                  I build the kind of systems I sell.
+                </h2>
+                <p className="mt-5 leading-7 text-slate-600">
+                  The offer is simple: practical AI implementation for San Antonio businesses. Not prompts for their own sake. Not a strategy deck. Working systems with enough guardrails for real operations.
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section id="how-it-works" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">The Process</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">
-              How to Implement AI in Your Business
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              No corporate bureaucracy. No endless meetings. Just a straightforward path from where you are to where you want to be.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              {
-                step: 1,
-                title: "Free Assessment",
-                description: "30-minute conversation to understand your operations, identify opportunities, and recommend the right level of engagement.",
-                icon: <Target className="w-6 h-6" />
-              },
-              {
-                step: 2,
-                title: "Custom Roadmap",
-                description: "Detailed plan with specific solutions, projected ROI, timeline, and success metrics—tailored to your business.",
-                icon: <BookOpen className="w-6 h-6" />
-              },
-              {
-                step: 3,
-                title: "Build + Train",
-                description: "We implement your AI systems while training your team to use them effectively. Hands-on education, not just software.",
-                icon: <Users className="w-6 h-6" />
-              },
-              {
-                step: 4,
-                title: "Optimize + Support",
-                description: "Ongoing refinement based on real results. Your systems get smarter, your team gets more capable.",
-                icon: <TrendingUp className="w-6 h-6" />
-              }
-            ].map((item, idx) => (
-              <div key={idx} className="relative">
-                {idx < 3 && (
-                  <div className="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-blue-200"></div>
-                )}
-                <div className="relative bg-white">
-                  <div className="bg-blue-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 relative z-10 shadow-lg shadow-blue-500/25">
-                    {item.icon}
-                  </div>
-                  <div className="text-center">
-                    <div className="text-sm text-blue-600 font-semibold mb-2">Step {item.step}</div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                    <p className="text-slate-600">{item.description}</p>
-                  </div>
-                </div>
+              <div className="grid gap-4">
+                {proofItems.map((item) => (
+                  <article key={item.title} className="rounded-lg border border-slate-200 bg-white p-5">
+                    <h3 className="font-semibold text-slate-950">{item.title}</h3>
+                    <p className="mt-2 leading-7 text-slate-600">{item.text}</p>
+                  </article>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Industries Section */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Industries We Serve</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">
-              Business Automation with AI for Operational Industries
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              We specialize in industries with clear, measurable operations—where AI delivers undeniable ROI
-              without regulatory complexity.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                icon: <Building2 className="w-8 h-8" />,
-                title: "Construction & Contractors",
-                pain: "3-week bid turnaround killing win rate",
-                solution: "Same-day automated estimates with AI",
-                stat: "40% more project wins"
-              },
-              {
-                icon: <Factory className="w-8 h-8" />,
-                title: "Manufacturing",
-                pain: "$100K+ cost per unplanned downtime",
-                solution: "Predictive maintenance that prevents failures",
-                stat: "65% downtime reduction"
-              },
-              {
-                icon: <Truck className="w-8 h-8" />,
-                title: "Logistics & Distribution",
-                pain: "30% of operating cost in fuel",
-                solution: "Real-time route optimization with AI",
-                stat: "28% fuel cost savings"
-              },
-              {
-                icon: <Wrench className="w-8 h-8" />,
-                title: "Facilities Management",
-                pain: "Reactive maintenance chaos",
-                solution: "Automated scheduling and work orders",
-                stat: "50% fewer emergency calls"
-              },
-              {
-                icon: <DollarSign className="w-8 h-8" />,
-                title: "Wholesale & B2B",
-                pain: "Manual order processing bottlenecks",
-                solution: "AI-powered quote and order automation",
-                stat: "3x faster order processing"
-              },
-              {
-                icon: <Zap className="w-8 h-8" />,
-                title: "Energy & Utilities",
-                pain: "Asset tracking across scattered sites",
-                solution: "Intelligent monitoring and alerting",
-                stat: "99% asset visibility"
-              }
-            ].map((industry, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-6 border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all">
-                <div className="bg-blue-100 text-blue-600 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
-                  {industry.icon}
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{industry.title}</h3>
-                <div className="space-y-3 text-sm">
-                  <div>
-                    <span className="text-red-600 font-medium">Pain: </span>
-                    <span className="text-slate-600">{industry.pain}</span>
-                  </div>
-                  <div>
-                    <span className="text-green-600 font-medium">Solution: </span>
-                    <span className="text-slate-600">{industry.solution}</span>
-                  </div>
-                  <div className="pt-2 border-t border-slate-100">
-                    <span className="text-blue-600 font-bold">{industry.stat}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Results / Testimonials */}
-      <section id="results" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Built, Not Pitched</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">
-              Real Software I've Shipped — Same Stack I'll Build for You
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Most AI consultants sell you slides. I'll show you working systems I built with my own hands. The proof is the portfolio.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, idx) => (
-              <div key={idx} className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-8 border border-slate-200 relative">
-                <div className="absolute -top-4 left-8 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-bold">
-                  {testimonial.result}
-                </div>
-                <div className="flex gap-1 mb-4 pt-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <p className="text-slate-700 mb-6 italic leading-relaxed">
-                  "{testimonial.quote}"
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center text-slate-600 font-bold">
-                    {testimonial.author.split(' ').map(n => n[0]).join('')}
-                  </div>
-                  <div>
-                    <div className="font-bold text-slate-900">{testimonial.author}</div>
-                    <div className="text-slate-500 text-sm">{testimonial.role}, {testimonial.location}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Stats Bar */}
-          <div className="mt-16 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 grid md:grid-cols-4 gap-8 text-white">
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2">5+</div>
-              <div className="text-blue-200">Production Apps Built</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2">1,000+</div>
-              <div className="text-blue-200">Hours AI Training</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2">100%</div>
-              <div className="text-blue-200">Satisfaction Guarantee</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2">3 Years</div>
-              <div className="text-blue-200">AI Implementation Experience</div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FAQ Section */}
-      <section id="faq" className="py-20 bg-slate-50">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Common Questions</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">
-              Frequently Asked Questions
-            </h2>
+        <section id="process" className="bg-white py-16">
+          <div className="mx-auto max-w-6xl px-5">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">Process</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+                How the first automation gets built.
+              </h2>
+            </div>
+            <div className="mt-10 grid gap-5 md:grid-cols-4">
+              {processSteps.map((step, index) => {
+                const Icon = step.icon;
+                return (
+                  <article key={step.title} className="rounded-lg border border-slate-200 bg-white p-5">
+                    <div className="mb-5 flex items-center justify-between">
+                      <span className="text-sm font-semibold text-slate-500">0{index + 1}</span>
+                      <Icon className="h-5 w-5 text-blue-700" />
+                    </div>
+                    <h3 className="font-semibold text-slate-950">{step.title}</h3>
+                    <p className="mt-3 leading-7 text-slate-600">{step.text}</p>
+                  </article>
+                );
+              })}
+            </div>
           </div>
+        </section>
 
-          <div className="space-y-4">
-            {faqs.map((faq, idx) => (
-              <div key={idx} className="bg-white rounded-xl border border-slate-200 overflow-hidden">
-                <button
-                  onClick={() => toggleFaq(idx)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition"
-                >
-                  <span className="font-semibold text-slate-900 pr-4">{faq.question}</span>
-                  {openFaq === idx ? (
-                    <ChevronUp className="w-5 h-5 text-slate-500 flex-shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-500 flex-shrink-0" />
+        <section className="border-y border-slate-200 bg-slate-950 py-16 text-white">
+          <div className="mx-auto grid max-w-6xl gap-8 px-5 md:grid-cols-[1fr_0.8fr] md:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wide text-blue-300">Local service area</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+                Built for businesses in and around San Antonio.
+              </h2>
+              <p className="mt-5 max-w-3xl leading-8 text-slate-300">
+                I serve San Antonio, Boerne, New Braunfels, San Marcos, Schertz, Converse, Seguin, Helotes, Universal City, and nearby South Texas operators who benefit from in person workflow discovery.
+              </p>
+            </div>
+            <a
+              href={calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 font-semibold text-slate-950 hover:bg-slate-100"
+            >
+              Schedule the first call
+              <ArrowRight className="h-5 w-5" />
+            </a>
+          </div>
+        </section>
+
+        <section id="faq" className="bg-white py-16">
+          <div className="mx-auto max-w-3xl px-5">
+            <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">FAQ</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950">Common questions.</h2>
+            <div className="mt-8 divide-y divide-slate-200 border-y border-slate-200">
+              {faqs.map((faq, index) => (
+                <div key={faq.question}>
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                    className="flex w-full items-center justify-between gap-6 py-5 text-left font-semibold text-slate-950"
+                  >
+                    {faq.question}
+                    {openFaq === index ? (
+                      <ChevronUp className="h-5 w-5 flex-none text-slate-500" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 flex-none text-slate-500" />
+                    )}
+                  </button>
+                  {openFaq === index && (
+                    <p className="pb-5 leading-7 text-slate-600">{faq.answer}</p>
                   )}
-                </button>
-                {openFaq === idx && (
-                  <div className="px-6 pb-5">
-                    <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section with Calendly */}
-      <section id="contact" className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="max-w-4xl mx-auto px-6 relative">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Book Your Free 15-Minute AI Audit
-            </h2>
-            <p className="text-xl text-slate-300 mb-4">
-              In 15 minutes, you'll know exactly where AI can save you time and money.
-              No sales pitch—just honest assessment of your biggest opportunities.
-            </p>
-            <p className="text-lg text-blue-300 font-medium">
-              I'll call you at your scheduled time. Local San Antonio meetings also available.
-            </p>
-          </div>
-
-          {/* Calendly Inline Widget */}
-          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-            <div
-              className="calendly-inline-widget"
-              data-url="https://calendly.com/aiconsultingsa-com/free-ai-audit-call?hide_gdpr_banner=1&background_color=ffffff&text_color=1e293b&primary_color=2563eb"
-              style={{ minWidth: '320px', height: '700px' }}
-            />
-          </div>
-
-          {/* Trust Signals */}
-          <div className="flex flex-wrap justify-center gap-8 mt-8 text-slate-300">
-            <div className="flex items-center gap-2">
-              <Shield className="w-5 h-5 text-green-400" />
-              <span>100% Satisfaction Guarantee</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Clock className="w-5 h-5 text-blue-400" />
-              <span>15 minutes, no obligation</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Phone className="w-5 h-5 text-amber-400" />
-              <span>I call you</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-slate-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            <div className="md:col-span-2">
-              <h3 className="text-2xl font-bold mb-4">AI Consulting SA</h3>
-              <p className="text-slate-400 mb-6 max-w-md">
-                AI consulting services that transform San Antonio businesses through intelligent automation,
-                team training, and custom AI orchestration. Results guaranteed.
-              </p>
-              <div className="flex items-center gap-2 text-slate-400">
-                <MapPin className="w-5 h-5" />
-                <span>San Antonio, Texas • Serving South Texas</span>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="font-bold text-lg mb-4">Services</h4>
-              <ul className="space-y-2 text-slate-400">
-                <li><a href="#services" className="hover:text-white transition">AI Education & Training</a></li>
-                <li><a href="#services" className="hover:text-white transition">Systems Integration</a></li>
-                <li><a href="#services" className="hover:text-white transition">Custom AI Development</a></li>
-                <li><a href="#services" className="hover:text-white transition">Business Automation</a></li>
-                <li><a href="#services" className="hover:text-white transition">AI Strategy Consulting</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold text-lg mb-4">Contact</h4>
-              <div className="space-y-3 text-slate-400">
-                <a href="tel:+12108028945" className="flex items-center gap-2 hover:text-white transition">
-                  <Phone className="w-5 h-5" />
-                  <span>(210) 802-8945</span>
-                </a>
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-5 h-5" />
-                  <span>Greater San Antonio Area</span>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
+        </section>
 
-          <div className="border-t border-slate-800 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-slate-500 text-sm">
-                © 2026 AI Consulting SA. All rights reserved.
-              </p>
-              <p className="text-slate-600 text-sm text-center md:text-right">
-                Built by an AI implementation consultant who believes in results over rhetoric—and backs it with a 100% guarantee.
-              </p>
+        <section id="contact" className="border-t border-slate-200 bg-stone-50 py-16">
+          <div className="mx-auto max-w-4xl px-5 text-center">
+            <MessageSquare className="mx-auto h-9 w-9 text-blue-700" />
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+              Bring one painful workflow to the call.
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl leading-8 text-slate-600">
+              I will tell you whether AI is the right tool, what a first build would look like, and what I would avoid.
+            </p>
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <a
+                href={calendlyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-700 px-5 py-3 font-semibold text-white hover:bg-blue-800"
+              >
+                Book a free 15 minute call
+                <ArrowRight className="h-5 w-5" />
+              </a>
+              <a
+                href="tel:+12108028945"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 font-semibold text-slate-950 hover:border-slate-500"
+              >
+                <Phone className="h-5 w-5" />
+                (210) 802-8945
+              </a>
             </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-white py-10">
+        <div className="mx-auto flex max-w-6xl flex-col justify-between gap-6 px-5 text-sm text-slate-600 md:flex-row">
+          <div>
+            <p className="font-semibold text-slate-950">AI Consulting SA</p>
+            <p className="mt-2">AI consultant in San Antonio for small business automation.</p>
+          </div>
+          <div className="flex flex-wrap gap-4">
+            <a href="/ai-phone-answering/" className="hover:text-slate-950">AI phone answering</a>
+            <a href="/ai-document-automation-san-antonio/" className="hover:text-slate-950">Document automation</a>
+            <a href="/small-business-automation-san-antonio/" className="hover:text-slate-950">Small business automation</a>
           </div>
         </div>
       </footer>
-
-      {/* Schema.org Structured Data - LocalBusiness + ProfessionalService */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": ["ProfessionalService", "LocalBusiness"],
-          "@id": "https://aiconsultingsa.com/#business",
-          "name": "AI Consulting SA",
-          "description": "San Antonio AI consultant who builds custom workflows, Twilio phone bots, paperwork automation, and team training for small businesses. Save 10+ hours a week with hands-on implementation — not just advice.",
-          "url": "https://aiconsultingsa.com",
-          "telephone": "+1-210-802-8945",
-          "priceRange": "$$",
-          "image": "https://aiconsultingsa.com/og-image.jpg",
-          "logo": "https://aiconsultingsa.com/favicon.png",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "San Antonio",
-            "addressRegion": "TX",
-            "addressCountry": "US"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "29.4241",
-            "longitude": "-98.4936"
-          },
-          "areaServed": [
-            { "@type": "City", "name": "San Antonio", "containedInPlace": { "@type": "State", "name": "Texas" } },
-            { "@type": "City", "name": "Boerne" },
-            { "@type": "City", "name": "New Braunfels" },
-            { "@type": "City", "name": "San Marcos" },
-            { "@type": "City", "name": "Schertz" },
-            { "@type": "City", "name": "Converse" },
-            { "@type": "City", "name": "Seguin" },
-            { "@type": "City", "name": "Helotes" },
-            { "@type": "City", "name": "Universal City" }
-          ],
-          "serviceArea": {
-            "@type": "GeoCircle",
-            "geoMidpoint": {
-              "@type": "GeoCoordinates",
-              "latitude": "29.4241",
-              "longitude": "-98.4936"
-            },
-            "geoRadius": "75000"
-          },
-          "knowsLanguage": ["en", "es"],
-          "serviceType": [
-            "AI Consulting",
-            "AI Workflow Automation",
-            "Small Business Automation",
-            "AI Phone Answering",
-            "Twilio Voice AI",
-            "AI Team Training",
-            "Custom AI Development"
-          ],
-          "openingHoursSpecification": [{
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "08:00",
-            "closes": "18:00"
-          }]
-        })
-      }} />
-
-      {/* Schema.org Structured Data - FAQPage */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": faqs.map((faq) => ({
-            "@type": "Question",
-            "name": faq.question,
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": faq.answer
-            }
-          }))
-        })
-      }} />
     </div>
   );
 }
