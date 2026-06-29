@@ -20,15 +20,15 @@ const calendlyUrl = 'https://calendly.com/aiconsultingsa-com/free-ai-audit-call'
 
 const services = [
   {
-    title: 'AI phone answering',
+    title: 'Calls slipping to voicemail',
     keyword: 'AI phone answering for small business',
     href: '/ai-phone-answering/',
     icon: PhoneCall,
     problem: 'Calls hit voicemail while you are on a job, in a truck, or already helping another customer.',
-    solution: 'A Twilio based AI receptionist answers, qualifies the caller, books the next step, and texts you a clean summary.',
+    solution: 'I build a Twilio based AI receptionist that answers, qualifies the caller, books the next step, and texts you a clean summary.',
   },
   {
-    title: 'Document automation',
+    title: 'Paperwork turning into spreadsheet nights',
     keyword: 'AI document automation San Antonio',
     href: '/ai-document-automation-san-antonio/',
     icon: FileText,
@@ -36,7 +36,7 @@ const services = [
     solution: 'I build guarded extraction workflows that read the paperwork, structure the data, flag exceptions, and keep a human in the loop.',
   },
   {
-    title: 'Back office workflows',
+    title: 'Follow ups falling through cracks',
     keyword: 'Small business automation San Antonio',
     href: '/small-business-automation-san-antonio/',
     icon: Workflow,
@@ -48,11 +48,11 @@ const services = [
 const proofItems = [
   {
     title: 'AI voice agent on my own line',
-    text: 'I run a Twilio voice agent for my own business calls. It picks up when I cannot, captures the details, and sends me the summary.',
+    text: 'I run a Twilio voice agent for my own business calls. It picks up when I cannot, captures the details, and sends me a usable summary.',
   },
   {
     title: 'PDF to spreadsheet automation',
-    text: 'I have built software that turns long construction spec documents into organized spreadsheet output for review.',
+    text: 'I have built software that turns long construction spec documents into organized spreadsheet output with reviewable fields.',
   },
   {
     title: 'Small business ops software',
@@ -62,7 +62,7 @@ const proofItems = [
 
 const processSteps = [
   {
-    title: 'Walk the real workflow',
+    title: 'Bring one workflow',
     text: 'We start with the job as it happens today: calls, paperwork, follow ups, handoffs, and the places work gets stuck.',
     icon: ClipboardList,
   },
@@ -73,7 +73,7 @@ const processSteps = [
   },
   {
     title: 'Build the working system',
-    text: 'I wire the AI, rules, integrations, logging, and handoff points so the system behaves predictably in real use.',
+    text: 'I wire the AI, rules, integrations, logging, and handoff points so the system can be tested in real use.',
     icon: Bot,
   },
   {
@@ -81,6 +81,12 @@ const processSteps = [
     text: 'You get the workflow, the documentation, and the tuning pass after it touches real calls, documents, or leads.',
     icon: CalendarCheck,
   },
+];
+
+const noList = [
+  'I will not automate judgment heavy work without a human review step.',
+  'I will not replace software you already use unless it is the bottleneck.',
+  'I will not build an AI demo when a checklist, form, script, or rule would solve it.',
 ];
 
 const faqs = [
@@ -92,7 +98,7 @@ const faqs = [
   {
     question: 'Is this strategy consulting or implementation?',
     answer:
-      'Implementation. I will help you choose the right first project, but the goal is a working AI workflow your team can use. You are hiring a builder, not someone to leave you with a slide deck.',
+      'Implementation. I will help you choose the right first project, but the goal is a working workflow your team can use. You are hiring a builder, not someone to leave you with a slide deck.',
   },
   {
     question: 'Do we need to replace our current software?',
@@ -107,7 +113,7 @@ const faqs = [
   {
     question: 'How much does a project cost?',
     answer:
-      'Small focused builds often start in the low thousands. Larger workflow and document automation projects depend on the number of tools, edge cases, and training needs. The first call is to see whether there is a strong enough use case before we talk scope.',
+      'Small focused builds often start in the low thousands. Larger workflow and document automation projects depend on the number of tools, edge cases, and training needs. The first call is to see whether the use case is strong enough before we talk scope.',
   },
 ];
 
@@ -133,7 +139,7 @@ export default function AIConsultingServicesPage() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
           >
-            Book a call
+            Triage one workflow
             <ArrowRight className="h-4 w-4" />
           </a>
         </div>
@@ -144,13 +150,13 @@ export default function AIConsultingServicesPage() {
           <div>
             <div className="mb-5 inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-stone-50 px-3 py-2 text-sm font-medium text-slate-700">
               <MapPin className="h-4 w-4 text-blue-700" />
-              San Antonio, Boerne, New Braunfels, Schertz, Seguin
+              AI consultant San Antonio | Built by a local operator
             </div>
             <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-tight text-slate-950 md:text-6xl">
-              AI consultant in San Antonio for service businesses that need working automation.
+              Bring me the workflow your team keeps doing by hand.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">
-              I build AI phone answering, document automation, and back office workflows for local operators who are missing calls, losing time to paperwork, or manually chasing the same follow ups every week.
+              I build practical AI systems for San Antonio service businesses: phone answering, document cleanup, and follow ups that stop slipping through the cracks.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
@@ -159,7 +165,7 @@ export default function AIConsultingServicesPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-700 px-5 py-3 font-semibold text-white hover:bg-blue-800"
               >
-                Book a free 15 minute call
+                Book the workflow triage call
                 <ArrowRight className="h-5 w-5" />
               </a>
               <a
@@ -167,11 +173,11 @@ export default function AIConsultingServicesPage() {
                 className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 font-semibold text-slate-900 hover:border-slate-500"
               >
                 <Phone className="h-5 w-5" />
-                Call (210) 802-8945
+                Call Dominic: (210) 802-8945
               </a>
             </div>
             <div className="mt-8 flex flex-wrap gap-3 text-sm text-slate-600">
-              {['No generic AI workshop', 'Built around your tools', 'English and Spanish voice workflows'].map((item) => (
+              {['15 minutes', 'One workflow', 'Clear yes or no'].map((item) => (
                 <span key={item} className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2">
                   <Check className="h-4 w-4 text-blue-700" />
                   {item}
@@ -182,23 +188,23 @@ export default function AIConsultingServicesPage() {
 
           <aside className="self-start rounded-lg border border-slate-200 bg-stone-50 p-6">
             <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">Best fit</p>
-            <h2 className="mt-3 text-2xl font-semibold text-slate-950">Local companies with one painful bottleneck.</h2>
+            <h2 className="mt-3 text-2xl font-semibold text-slate-950">Good first projects are painfully obvious.</h2>
             <ul className="mt-6 space-y-4 text-slate-700">
               <li className="flex gap-3">
                 <Check className="mt-1 h-5 w-5 flex-none text-blue-700" />
-                <span>Service calls are going to voicemail or getting returned too late.</span>
+                <span>Calls go to voicemail while the owner is working.</span>
               </li>
               <li className="flex gap-3">
                 <Check className="mt-1 h-5 w-5 flex-none text-blue-700" />
-                <span>Office staff are buried in PDFs, forms, spreadsheets, and status updates.</span>
+                <span>PDFs, forms, and spreadsheets eat nights and weekends.</span>
               </li>
               <li className="flex gap-3">
                 <Check className="mt-1 h-5 w-5 flex-none text-blue-700" />
-                <span>Leads, quotes, appointments, and reminders require too many manual handoffs.</span>
+                <span>Quotes, reminders, and CRM notes depend on memory.</span>
               </li>
             </ul>
             <p className="mt-6 border-t border-slate-200 pt-5 text-sm leading-6 text-slate-600">
-              If the problem can be observed in a normal workday, it can usually be scoped into a focused first build.
+              If the workflow happens every week and someone hates doing it, bring it to the call.
             </p>
           </aside>
         </div>
@@ -210,10 +216,10 @@ export default function AIConsultingServicesPage() {
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">Positioning</p>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
-                You do not need another AI demo. You need one stuck workflow fixed.
+                The first project should make one annoying job disappear.
               </h2>
               <p className="mt-5 text-lg leading-8 text-slate-600">
-                The first project should be narrow enough to ship and important enough to matter. A missed call workflow. A document intake workflow. A quote follow up workflow. Once the first one works, the next automation is easier to trust.
+                Bring one process: a missed call, a PDF, a quote follow up, a spreadsheet handoff. I will tell you what I would automate, what I would leave alone, and what the first version should prove.
               </p>
             </div>
           </div>
@@ -225,11 +231,11 @@ export default function AIConsultingServicesPage() {
               <div>
                 <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">Services</p>
                 <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
-                  High intent AI automation services.
+                  Three places local operators usually lose time.
                 </h2>
               </div>
               <p className="max-w-xl text-slate-600">
-                These are separate search intents and separate buyer pains. Each one has its own page so Google and the customer can understand exactly what you do.
+                Missed calls, repeated paperwork, and manual follow ups are different problems. Each gets a focused first build instead of a giant transformation plan.
               </p>
             </div>
 
@@ -248,7 +254,7 @@ export default function AIConsultingServicesPage() {
                     <p className="mt-4 text-sm font-semibold text-slate-500">Build</p>
                     <p className="mt-1 leading-7 text-slate-700">{service.solution}</p>
                     <a href={service.href} className="mt-5 inline-flex items-center gap-2 font-semibold text-blue-700 hover:text-blue-900">
-                      Read more
+                      See the page
                       <ArrowRight className="h-4 w-4" />
                     </a>
                   </article>
@@ -264,10 +270,10 @@ export default function AIConsultingServicesPage() {
               <div>
                 <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">Proof</p>
                 <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950">
-                  I build the kind of systems I sell.
+                  I am not selling the idea of AI. I build the systems.
                 </h2>
                 <p className="mt-5 leading-7 text-slate-600">
-                  The offer is simple: practical AI implementation for San Antonio businesses. Not prompts for their own sake. Not a strategy deck. Working systems with enough guardrails for real operations.
+                  The proof is practical: calls captured, documents parsed, reminders sent, payments collected, and workflows logged. Ask to see a live example on the call.
                 </p>
               </div>
               <div className="grid gap-4">
@@ -282,12 +288,31 @@ export default function AIConsultingServicesPage() {
           </div>
         </section>
 
+        <section className="bg-white py-16">
+          <div className="mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-[0.8fr_1.2fr] md:items-start">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">What I will not automate</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+                The fastest way to build trust is to say no.
+              </h2>
+            </div>
+            <div className="grid gap-4">
+              {noList.map((item) => (
+                <div key={item} className="flex gap-3 rounded-lg border border-slate-200 bg-stone-50 p-5">
+                  <Check className="mt-1 h-5 w-5 flex-none text-blue-700" />
+                  <p className="leading-7 text-slate-700">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section id="process" className="bg-white py-16">
           <div className="mx-auto max-w-6xl px-5">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">Process</p>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
-                How the first automation gets built.
+                How the first workflow gets built.
               </h2>
             </div>
             <div className="mt-10 grid gap-5 md:grid-cols-4">
@@ -325,7 +350,7 @@ export default function AIConsultingServicesPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 font-semibold text-slate-950 hover:bg-slate-100"
             >
-              Schedule the first call
+              Book the workflow triage call
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>
@@ -366,7 +391,7 @@ export default function AIConsultingServicesPage() {
               Bring one painful workflow to the call.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl leading-8 text-slate-600">
-              I will tell you whether AI is the right tool, what a first build would look like, and what I would avoid.
+              I will tell you whether AI is the right tool, what the first build would look like, and what I would avoid.
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <a
@@ -375,7 +400,7 @@ export default function AIConsultingServicesPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-700 px-5 py-3 font-semibold text-white hover:bg-blue-800"
               >
-                Book a free 15 minute call
+                Book the workflow triage call
                 <ArrowRight className="h-5 w-5" />
               </a>
               <a
@@ -394,7 +419,7 @@ export default function AIConsultingServicesPage() {
         <div className="mx-auto flex max-w-6xl flex-col justify-between gap-6 px-5 text-sm text-slate-600 md:flex-row">
           <div>
             <p className="font-semibold text-slate-950">AI Consulting SA</p>
-            <p className="mt-2">AI consultant in San Antonio for small business automation.</p>
+            <p className="mt-2">AI consultant in San Antonio for practical small business automation.</p>
           </div>
           <div className="flex flex-wrap gap-4">
             <a href="/ai-phone-answering/" className="hover:text-slate-950">AI phone answering</a>

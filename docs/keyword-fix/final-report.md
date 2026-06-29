@@ -9,12 +9,13 @@ Mode: research plus implementation
 Top wins implemented:
 
 1. Repositioned the homepage around the current winning query: "AI consultant San Antonio."
-2. Replaced the broad, overproduced AI consulting page with a cleaner local implementation pitch for service businesses.
+2. Replaced the broad, overproduced AI consulting page with a cleaner workflow triage offer for service businesses.
 3. Added static crawlable homepage fallback content inside `#root`, so raw HTML now contains meaningful service copy before React runs.
 4. Moved structured data into raw HTML for the homepage and added service, breadcrumb, and FAQ schema to static long-tail pages.
 5. Added two distinct long-tail service pages:
    - `/ai-document-automation-san-antonio/`
    - `/small-business-automation-san-antonio/`
+6. Added a second reducer pass that centers the offer on one workflow triage call and adds clear "what I will not automate" trust sections.
 
 Top risks:
 
@@ -66,15 +67,19 @@ Frustration language:
 
 Hook:
 
-AI consultant in San Antonio for service businesses that need working automation.
+Bring me the workflow your team keeps doing by hand.
 
 Relief:
 
-One painful workflow gets observed, scoped, built, tested, and handed to the team instead of selling a generic AI workshop.
+One painful workflow gets observed, scoped, built, tested, and handed to the team instead of selling a generic AI workshop or strategy deck.
 
 Proof layer:
 
 The page now emphasizes working systems already built: Twilio voice agent, PDF to spreadsheet automation, and small business operations tooling.
+
+Trust layer:
+
+The site now says what will not be automated: judgment heavy work without review, useful existing software unless it is the bottleneck, and demos when a simpler rule or checklist would solve the problem.
 
 ## Keyword Map
 
@@ -89,11 +94,11 @@ The page now emphasizes working systems already built: Twilio voice agent, PDF t
 
 Changed:
 
-- `src/AIConsultingServicesPage.jsx`: clean React homepage rewrite focused on local AI implementation and three service intents.
-- `index.html`: new meta title and description, static SEO fallback content, static LocalBusiness/WebSite/FAQ JSON-LD.
-- `public/ai-phone-answering/index.html`: rebuilt as a lightweight static page with service, breadcrumb, and FAQ schema.
-- `public/ai-document-automation-san-antonio/index.html`: new long-tail static service page.
-- `public/small-business-automation-san-antonio/index.html`: new long-tail static service page.
+- `src/AIConsultingServicesPage.jsx`: clean React homepage rewrite focused on one workflow triage offer, local proof, and clear no list constraints.
+- `index.html`: new meta description, static SEO fallback content, static LocalBusiness/WebSite/FAQ JSON-LD, and the stripped homepage H1.
+- `public/ai-phone-answering/index.html`: lightweight static page focused on missed calls, Twilio AI phone answering, escalation, and summary workflows.
+- `public/ai-document-automation-san-antonio/index.html`: long-tail static service page focused on repeated paperwork, exception flags, and human review.
+- `public/small-business-automation-san-antonio/index.html`: long-tail static service page focused on repeated handoffs across calls, quotes, CRM, and follow ups.
 - `public/static-page.css`: shared lightweight CSS for static pages.
 - `public/sitemap.xml`: added new canonical URLs.
 - `vercel.json`: added canonical redirects for new static `index.html` paths.
@@ -106,7 +111,7 @@ Verified:
 - JSON-LD parses in source and built output.
 - `public/sitemap.xml` and `vercel.json` parse successfully.
 - Vite preview serves all four canonical URLs with status 200, distinct titles, distinct canonicals, and schema blocks.
-- Playwright screenshots checked homepage desktop, homepage mobile, and one static service page.
+- Browser QA with system Chrome checked homepage desktop, homepage mobile, and all three static routes for expected H1s, no horizontal overflow, no clipped CTA text, and call or Calendly CTAs.
 
 ## Next 30/60/90 Days
 
