@@ -19,6 +19,9 @@ npm run dev
 - Public crawl files live in `public/robots.txt` and `public/sitemap.xml`.
 - Vercel canonical redirects live in `vercel.json`.
 - The primary paid offer page is `public/ai-tools-assessment-san-antonio/index.html` at `/ai-tools-assessment-san-antonio/`.
+- The homepage is founder led and pain first. Dominic is presented as a San Antonio operator who diagnoses calls, paperwork, and handoff problems before recommending AI or software.
+- Keep the public assessment method aligned with the canonical playbook: Diagnose, Research, Prescribe, Review. Implementation is optional, separately scoped, and never implied to be part of the $999 assessment.
+- The homepage founder panel is a 16:9 media slot that currently uses `public/founder-avatar.svg`. When a real introduction video is added, use a poster and click to load facade, do not autoplay the full player, and provide a transcript.
 - The static long-tail page is `public/ai-phone-answering/index.html`.
 - Static long-tail pages under `public/<slug>/index.html` must be verified with `npm run build` plus `npm run preview`; Vite dev may serve the React homepage fallback for trailing slash routes like `/ai-phone-answering/`.
 - Keep sitemap URLs canonical and absolute. For GSC domain properties, submit the full sitemap URL: `https://aiconsultingsa.com/sitemap.xml`.
