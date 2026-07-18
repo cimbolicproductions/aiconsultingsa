@@ -2,7 +2,7 @@
 
 Date: 2026-07-17
 Site: https://aiconsultingsa.com/
-Status: Published at commit `d227bb1`; Resend delivery replacement implemented locally, not yet deployed
+Status: Resend delivery fix deployed and verified at commit `d75d5fb`
 
 ## Sources
 
@@ -106,23 +106,21 @@ Post-edit checks:
 - Customer-facing Calendly search: no matches across the homepage and four static pages.
 - Lead form contract suite: ten tests passed for employee limit removal, public recipient privacy, private route wiring, missing or invalid configuration, invalid input, provider rejection, network failure, malformed provider acceptance, two email batch construction, HTML escaping, and idempotency.
 - Public source and build leak scan: zero recipient email literals and zero 2 to 20 employee-limit matches in the browser source, `dist`, or Vercel build output.
-- Vercel environment configuration: `LEAD_RECIPIENT_EMAIL` is configured for Production without embedding its value in the site bundle. `RESEND_API_KEY` and `RESEND_FROM_EMAIL` remain required before the replacement can deploy.
+- Vercel environment configuration: `LEAD_RECIPIENT_EMAIL`, `RESEND_API_KEY`, and `RESEND_FROM_EMAIL` are configured for Production without embedding their values in the site bundle. The Resend key is send-only and scoped to the verified `apexskills.dev` domain. The temporary sender is `AI Consulting SA <hello@apexskills.dev>`.
 - Current Vercel CLI build: passed and emitted the `/api/lead/` function with the Vite production output. The older global CLI could not validate the project's Node 24 setting, so the current CLI was used.
 - Local Vercel function check: homepage returned 200 with the private form action, incomplete POST returned a visible 400 error, and GET returned 405 without contacting the email provider.
 
 The Vercel `.html` to trailing slash redirect is present and parses in `vercel.json`. Runtime redirect behavior remains a deployment verification item because Vite preview does not execute Vercel redirect rules.
 
-Production deployment verification on 2026-07-17 reproduced three FormSubmit failures. Every valid request reached the function, but FormSubmit returned an opaque non-JSON HTTP 403 and no success redirect. The replacement Resend integration remains unverified end to end until its API key and sending domain are configured.
+Production deployment verification on 2026-07-17 reproduced three FormSubmit failures. Every valid request reached the function, but FormSubmit returned an opaque non-JSON HTTP 403 and no success redirect. On 2026-07-18, deployment `dpl_8CaUf2NjN9ZY4wiRL5tfDazDZcBs` shipped the Resend replacement from commit `d75d5fb`. A labeled production submission returned the expected 303 success redirect. Resend marked both the internal notification and customer confirmation as delivered, and both messages appeared in the Gmail inbox.
 
 ## External Follow Ups
 
-- Create or connect a Resend account, verify the chosen `aiconsultingsa.com` sending domain or subdomain, and configure `RESEND_API_KEY` plus `RESEND_FROM_EMAIL` in Vercel Production.
-- After deployment, submit one production test from an unrelated email address. Confirm that the complete lead arrives in the private inbox, Reply To targets the customer, and the customer receives the branded confirmation.
+- When a dedicated Resend domain slot is available, verify `aiconsultingsa.com`, change `RESEND_FROM_EMAIL` to `AI Consulting SA <hello@aiconsultingsa.com>`, and rotate the production key to that domain.
 - Run the first paid assessment with explicit recording and AI data processing consent.
 - Measure implemented changes after 14 and 30 days before publishing a result claim.
 - Decide whether a future implementation credit policy is useful and document it transparently before offering it.
-- Configure and test a Namecheap email forwarder only after the source alias and private destination inbox are confirmed. No DNS or email account changes were authorized in this session.
-- Commit, push, and deploy the Resend replacement only after its production variables are configured.
+- Namecheap DNS was inspected and left unchanged because the temporary sender uses the already verified `apexskills.dev` domain.
 
 ## Deviations From Plan
 

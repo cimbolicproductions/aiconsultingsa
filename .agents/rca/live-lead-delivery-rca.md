@@ -5,7 +5,7 @@
 - **Title:** Production lead form cannot deliver submissions
 - **Reported:** 2026-07-17
 - **Severity:** High
-- **Status:** Fix implemented locally; production configuration pending
+- **Status:** Fixed and verified in production
 
 ## Problem Statement
 
@@ -111,8 +111,8 @@ Replace FormSubmit with Resend's authenticated batch email API. Send the interna
 
 ### Short Term
 
-- Do not deploy the Resend code until all required production variables are configured.
-- Require a real two-recipient smoke test before marking the fix complete.
+- Keep all three production variables server-only and retain the domain-scoped send-only key.
+- Preserve the real two-recipient smoke test as the release gate for future provider changes.
 
 ### Long Term
 
@@ -128,10 +128,14 @@ Replace FormSubmit with Resend's authenticated batch email API. Send the interna
 - **Tests:** `npm run test:lead-form` passed 10 of 10.
 - **Lint:** `npm run lint` passed.
 - **Build:** `npm run build` passed with 1,703 modules transformed.
-- **Production verification:** Pending `RESEND_API_KEY`, a verified sending domain, and `RESEND_FROM_EMAIL`.
+- **Production configuration:** Vercel Production contains all three required variables. The temporary sender is `AI Consulting SA <hello@apexskills.dev>`, backed by a send-only key scoped to the verified `apexskills.dev` domain.
+- **Deployment:** Commit `d75d5fb`, Vercel deployment `dpl_8CaUf2NjN9ZY4wiRL5tfDazDZcBs`, Ready on 2026-07-18.
+- **Production verification:** A labeled live submission returned the expected 303 success redirect. Resend reported both messages delivered, and Gmail showed both the internal notification and customer confirmation in the inbox.
+- **Remaining follow-up:** Move the sender and rotate the key to `aiconsultingsa.com` when a dedicated Resend domain slot is available.
 
 ## References
 
 - Resend batch API: `https://resend.com/docs/api-reference/emails/send-batch-emails`
 - Resend idempotency: `https://resend.com/docs/dashboard/emails/idempotency-keys`
-- Production commit: `d227bb1`
+- Form launch commit: `d227bb1`
+- Resend fix commit: `d75d5fb`
