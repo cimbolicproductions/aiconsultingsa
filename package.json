@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:lead-form": "node --test tests/lead-form-contract.test.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.562.0",

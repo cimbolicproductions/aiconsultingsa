@@ -71,6 +71,66 @@
         gap: 16px;
         margin-top: 24px;
       }
+      .static-form {
+        margin-top: 36px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        background: #ffffff;
+        padding: 24px;
+      }
+      .static-form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+      .static-form label {
+        display: block;
+        color: #1e293b;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .static-form input,
+      .static-form textarea {
+        display: block;
+        width: 100%;
+        margin-top: 8px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        padding: 12px;
+        color: #0f172a;
+        font: inherit;
+      }
+      .static-form textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+      .static-form .message-field {
+        margin-top: 18px;
+      }
+      .static-form button {
+        width: 100%;
+        margin-top: 18px;
+        border: 0;
+        border-radius: 8px;
+        background: #1d4ed8;
+        padding: 13px 18px;
+        color: #ffffff;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .static-form .honey {
+        display: none;
+      }
+      .static-form .form-note {
+        margin-bottom: 0;
+        font-size: 14px;
+      }
+      @media (max-width: 640px) {
+        .static-form-grid {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
 
     <script type="application/ld+json" id="local-business-schema">
@@ -112,8 +172,19 @@
             "knowsLanguage": ["en", "es"],
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
-              "name": "AI automation services",
+              "name": "AI Tools Assessment and implementation services",
               "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "url": "https://aiconsultingsa.com/ai-tools-assessment-san-antonio/",
+                  "price": "999",
+                  "priceCurrency": "USD",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "AI Tools Assessment San Antonio",
+                    "url": "https://aiconsultingsa.com/ai-tools-assessment-san-antonio/"
+                  }
+                },
                 {
                   "@type": "Offer",
                   "itemOffered": {
@@ -154,26 +225,58 @@
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "What kind of San Antonio businesses are the best fit?",
+                "name": "What does the AI Tools Assessment cost?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "AI Consulting SA works best with 5 to 50 person service businesses around San Antonio, including contractors, rental operators, small fleets, distributors, repair shops, and local companies with calls, paperwork, quotes, and follow ups to manage."
+                  "text": "The AI Tools Assessment is a flat $999. Implementation is separate and is scoped only after the recommendations are clear."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Is this strategy consulting or implementation?",
+                "name": "What is included in the $999 assessment?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "The focus is implementation. The first call helps choose the right project, but the goal is a working workflow your team can use."
+                  "text": "The $999 assessment includes a 45 minute recorded discovery with permission, transcript analysis, human verified research, three to seven prioritized recommendations, an effort versus impact matrix, a four day plan, ROI assumptions, and a 30 minute review."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Do you work outside San Antonio?",
+                "name": "How is the website form different from the assessment?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "AI Consulting SA focuses on businesses within about an hour of San Antonio, including Boerne, New Braunfels, San Marcos, Schertz, Converse, Seguin, Helotes, and nearby areas."
+                  "text": "The website form is a free way to share the business, workflow, urgency, and best contact details. I review it and follow up about fit and the next step. The paid assessment is the deeper discovery, research, report, and review."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is implementation included?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. The assessment ends with a recommendation report and review. You can implement the plan yourself or request a separate proposal for the work you want help with."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How are recording and sensitive data handled?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The discovery is recorded only with permission. Before the call, we agree what data can be discussed and what must stay out of recordings, transcripts, and AI tools."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do we need to replace our current software?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Usually no. The assessment considers the phone, email, calendar, CRM, spreadsheets, forms, payment tools, and job systems you already use before recommending anything new."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What business size is the best fit?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The primary fit is an owner led San Antonio service business with a repeated workflow involving calls, paperwork, follow ups, or handoffs. Team size does not determine eligibility."
                 }
               }
             ]
@@ -188,27 +291,61 @@
         <p>AI Consulting SA</p>
         <h1>Bring me the workflow your team keeps doing by hand.</h1>
         <p>
-          AI Consulting SA is a San Antonio AI consultant for local service businesses. I build practical AI phone answering, document cleanup, and small business workflow automation for operators with one painful bottleneck.
+          AI Consulting SA is a San Antonio AI consultant for local service businesses. Start with a $999 AI Tools Assessment that maps one repeated workflow, researches suitable tools, and delivers a prioritized plan before you buy implementation.
         </p>
         <ul>
+          <li>A 45 minute recorded discovery, with permission, focused on the work as it happens today.</li>
+          <li>Three to seven human verified recommendations, an effort versus impact matrix, a four day plan, ROI assumptions, and a 30 minute review.</li>
           <li>AI phone answering for small businesses that miss calls and need summaries, booking, and routing.</li>
           <li>AI document automation for PDFs, forms, invoices, spec books, and spreadsheet cleanup.</li>
           <li>AI workflow automation for CRM updates, quote follow ups, reminders, and back office handoffs.</li>
-          <li>Workflow triage for owners who want to know what should stay manual before they spend money.</li>
         </ul>
         <p>
-          <a href="https://calendly.com/aiconsultingsa-com/free-ai-audit-call">Book the workflow triage call</a>
+          <a href="#contact">Tell me about your workflow</a>
           or <a href="tel:+12108028945">call (210) 802-8945</a>.
         </p>
         <nav class="static-links" aria-label="AI automation service pages">
+          <a href="/ai-tools-assessment-san-antonio/">AI Tools Assessment</a>
           <a href="/ai-phone-answering/">AI phone answering</a>
           <a href="/ai-document-automation-san-antonio/">AI document automation</a>
           <a href="/small-business-automation-san-antonio/">Small business automation</a>
         </nav>
+        <section id="contact" class="static-form">
+          <h2>Tell me about the workflow.</h2>
+          <p>Share the repeated work, where it gets stuck, and the best way to reach you. The workflow review is free; the $999 assessment is the optional next step.</p>
+          <form action="/api/lead/" method="POST" accept-charset="UTF-8">
+            <label class="honey" aria-hidden="true">
+              Leave this field empty
+              <input type="text" name="_honey" tabindex="-1" autocomplete="off" />
+            </label>
+            <div class="static-form-grid">
+              <label>
+                Your name
+                <input type="text" name="name" autocomplete="name" required />
+              </label>
+              <label>
+                Business name
+                <input type="text" name="business" autocomplete="organization" required />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" autocomplete="email" required />
+              </label>
+              <label>
+                Phone (optional)
+                <input type="tel" name="phone" autocomplete="tel" />
+              </label>
+            </div>
+            <label class="message-field">
+              What workflow keeps getting done by hand?
+              <textarea name="workflow" required placeholder="Tell me what happens, how often it happens, and where the work gets stuck."></textarea>
+            </label>
+            <button type="submit">Send my workflow</button>
+            <p class="form-note">This form sends your message through a server route to our email provider. Do not include passwords, protected personal information, or sensitive customer data.</p>
+          </form>
+        </section>
       </main>
     </div>
     <script type="module" src="/src/main.jsx"></script>
-    <!-- Calendly inline widget script -->
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
   </body>
 </html>
