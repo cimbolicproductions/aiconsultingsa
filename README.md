@@ -13,7 +13,7 @@ The site presents a simple offer ladder:
 
 This repository is only the marketing site. Assessment research, human quality control, reporting, and customer delivery remain human led outside the website.
 
-Website leads post to `/api/lead/`, a Vercel Function that reads the server-only `LEAD_RECIPIENT_EMAIL` setting and relays accepted submissions to FormSubmit. The recipient address is not included in the browser HTML. The first live submission still requires the recipient to confirm the FormSubmit activation email before later leads are forwarded.
+Website leads post to `/api/lead/`, a Vercel Function that sends an authenticated Resend batch containing two transactional emails: the complete lead notification to the private `LEAD_RECIPIENT_EMAIL` address and a branded confirmation to the customer. The recipient address and Resend credentials are never included in browser HTML. Delivery requires `LEAD_RECIPIENT_EMAIL`, `RESEND_API_KEY`, and a `RESEND_FROM_EMAIL` address on a domain verified in Resend. The function redirects to success only after Resend accepts both emails.
 
 ## Stack
 

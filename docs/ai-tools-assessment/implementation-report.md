@@ -2,7 +2,7 @@
 
 Date: 2026-07-17
 Site: https://aiconsultingsa.com/
-Status: Implemented locally, not published
+Status: Published at commit `d227bb1`; Resend delivery replacement implemented locally, not yet deployed
 
 ## Sources
 
@@ -61,7 +61,7 @@ Search Console anonymizes part of the query data. The first lead's exact query o
 - `tests/lead-form-contract.test.mjs`
 - `docs/ai-tools-assessment/implementation-report.md`
 
-Lead capture posts to `/api/lead/`. The Vercel Function reads `LEAD_RECIPIENT_EMAIL` from server-only project configuration and relays validated leads to FormSubmit's AJAX endpoint, so the recipient address is absent from browser HTML and client JavaScript. The function includes a honeypot, validates and limits fields, times out provider calls, logs server-side failures, returns visible error pages, and redirects to the submitted state only after FormSubmit returns an explicit success response. FormSubmit reCAPTCHA is disabled because the provider request is server-to-server rather than an interactive browser request.
+Lead capture posts to `/api/lead/`. The Vercel Function reads `LEAD_RECIPIENT_EMAIL`, `RESEND_API_KEY`, and `RESEND_FROM_EMAIL` from server-only project configuration. It sends one authenticated Resend batch containing the complete internal lead notification and a branded customer confirmation. The recipient address and credentials remain absent from browser HTML and client JavaScript. The function includes a honeypot, validates and limits fields, escapes user content before HTML rendering, adds a deterministic 24 hour idempotency key, times out provider calls, logs safe provider details, returns visible error pages, and redirects only after Resend accepts both emails.
 
 ## Claims Deliberately Excluded
 
@@ -104,29 +104,29 @@ Post-edit checks:
 - Service page form CTA click: navigated to `/#contact` and displayed the form successfully on a 390 by 844 viewport.
 - Initial hash navigation: the React page now scrolls to the requested section after render, preventing full-page links to `/#contact` from missing the form.
 - Customer-facing Calendly search: no matches across the homepage and four static pages.
-- Lead form contract suite: eight tests passed for employee-limit removal, public recipient privacy, private route wiring, missing configuration, invalid input, provider rejection, network failure, and provider acceptance.
+- Lead form contract suite: ten tests passed for employee limit removal, public recipient privacy, private route wiring, missing or invalid configuration, invalid input, provider rejection, network failure, malformed provider acceptance, two email batch construction, HTML escaping, and idempotency.
 - Public source and build leak scan: zero recipient email literals and zero 2 to 20 employee-limit matches in the browser source, `dist`, or Vercel build output.
-- Vercel environment configuration: `LEAD_RECIPIENT_EMAIL` is configured for Development, Preview, and Production without embedding its value in the site bundle.
+- Vercel environment configuration: `LEAD_RECIPIENT_EMAIL` is configured for Production without embedding its value in the site bundle. `RESEND_API_KEY` and `RESEND_FROM_EMAIL` remain required before the replacement can deploy.
 - Current Vercel CLI build: passed and emitted the `/api/lead/` function with the Vite production output. The older global CLI could not validate the project's Node 24 setting, so the current CLI was used.
-- Local Vercel function check: homepage returned 200 with the private form action, incomplete POST returned a visible 400 error, and GET returned 405 without contacting FormSubmit.
+- Local Vercel function check: homepage returned 200 with the private form action, incomplete POST returned a visible 400 error, and GET returned 405 without contacting the email provider.
 
 The Vercel `.html` to trailing slash redirect is present and parses in `vercel.json`. Runtime redirect behavior remains a deployment verification item because Vite preview does not execute Vercel redirect rules.
 
-No live form submission was made during local QA. End-to-end Gmail delivery remains unverified until the site is deployed, the first submission is made, and the recipient activation email is confirmed.
+Production deployment verification on 2026-07-17 reproduced three FormSubmit failures. Every valid request reached the function, but FormSubmit returned an opaque non-JSON HTTP 403 and no success redirect. The replacement Resend integration remains unverified end to end until its API key and sending domain are configured.
 
 ## External Follow Ups
 
-- After deployment, submit the form once and click the activation link FormSubmit sends to the configured recipient inbox. Later submissions will not forward until that confirmation is complete.
-- After activation, send a second test from an unrelated email address and confirm the complete lead arrives in Gmail with a usable Reply-To address.
+- Create or connect a Resend account, verify the chosen `aiconsultingsa.com` sending domain or subdomain, and configure `RESEND_API_KEY` plus `RESEND_FROM_EMAIL` in Vercel Production.
+- After deployment, submit one production test from an unrelated email address. Confirm that the complete lead arrives in the private inbox, Reply To targets the customer, and the customer receives the branded confirmation.
 - Run the first paid assessment with explicit recording and AI data processing consent.
 - Measure implemented changes after 14 and 30 days before publishing a result claim.
 - Decide whether a future implementation credit policy is useful and document it transparently before offering it.
 - Configure and test a Namecheap email forwarder only after the source alias and private destination inbox are confirmed. No DNS or email account changes were authorized in this session.
-- Commit, push, deploy, submit the sitemap, and request indexing only after separate authorization.
+- Commit, push, and deploy the Resend replacement only after its production variables are configured.
 
 ## Deviations From Plan
 
 - The first lead's exact query or landing page was not visible in GSC. The implementation followed the default of preserving every existing SEO route and primary intent.
 - The repository has no third-party test runner. A focused Node test suite now checks public copy, recipient privacy, private API routing, missing configuration, invalid input, provider rejection, provider network failure, and accepted submissions.
 - The browser CLI initially failed through its default launch path. It was pointed at the installed Playwright Chromium executable, after which the required QA passed.
-- After the initial implementation, Dominic replaced Calendly scheduling with an on-site lead form. He then removed the 2 to 20 employee positioning limit and required the recipient address to stay out of public HTML. Lead delivery now runs through a Vercel Function with a server-only environment variable, while FormSubmit failures remain visible to the visitor.
+- After the initial implementation, Dominic replaced Calendly scheduling with an on-site lead form. He then removed the 2 to 20 employee positioning limit and required the recipient address to stay out of public HTML. The first production deployment proved that FormSubmit rejected every server delivery with HTTP 403, so the implementation now uses an authenticated Resend batch for the internal lead notification and customer confirmation.

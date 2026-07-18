@@ -23,7 +23,7 @@ npm run dev
 - Static long-tail pages under `public/<slug>/index.html` must be verified with `npm run build` plus `npm run preview`; Vite dev may serve the React homepage fallback for trailing slash routes like `/ai-phone-answering/`.
 - Keep sitemap URLs canonical and absolute. For GSC domain properties, submit the full sitemap URL: `https://aiconsultingsa.com/sitemap.xml`.
 - Keep the React homepage, raw homepage fallback, visible FAQs, JSON-LD, static service page CTAs, sitemap, and redirects aligned to the same offer.
-- Lead capture uses matching React and raw homepage forms that post to `/api/lead/`. The Vercel Function reads `LEAD_RECIPIENT_EMAIL` server-side and relays to FormSubmit; never put the recipient address in client code or public HTML. Static service CTAs route to `/#contact`; keep both form copies, the API contract, and the success URL synchronized.
+- Lead capture uses matching React and raw homepage forms that post to `/api/lead/`. The Vercel Function sends an authenticated Resend batch with the private lead notification and customer confirmation. Production requires `LEAD_RECIPIENT_EMAIL`, `RESEND_API_KEY`, and `RESEND_FROM_EMAIL` on a verified sending domain. Never put these values in client code or public HTML. Static service CTAs route to `/#contact`; keep both form copies, the API contract, customer confirmation copy, and success URL synchronized.
 
 ## Memory And Closeout Rules
 
