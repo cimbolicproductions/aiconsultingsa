@@ -187,7 +187,7 @@ export default function AIConsultingServicesPage() {
 
           <aside id="meet-dominic" className="relative overflow-hidden rounded-[2rem] bg-slate-950 text-white shadow-2xl shadow-slate-950/20">
             <div className="absolute right-0 top-0 h-52 w-52 rounded-full bg-orange-700/30 blur-3xl" />
-            <div className="relative flex aspect-video items-end overflow-hidden border-b border-white/10 bg-[radial-gradient(circle_at_80%_20%,rgba(194,65,12,0.35),transparent_35%)] p-7 sm:p-9">
+            <div className="relative flex aspect-video items-center justify-center overflow-hidden border-b border-white/10 bg-[radial-gradient(circle_at_80%_20%,rgba(194,65,12,0.35),transparent_35%)] p-7 sm:p-9">
               <div className="flex items-center gap-4">
                 <img
                   src="/founder-avatar.svg"
