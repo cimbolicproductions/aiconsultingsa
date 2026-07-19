@@ -119,8 +119,14 @@ export default function AIConsultingServicesPage() {
       <nav className="sticky top-0 z-50 border-b border-stone-300/80 bg-[#fffdf8]/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 lg:px-8">
           <a href="/" className="flex items-center gap-3 font-semibold tracking-tight text-slate-950">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-950 font-serif text-lg text-white">A</span>
-            <span>AI Consulting SA</span>
+            <img
+              src="/favicon.png"
+              alt=""
+              width="36"
+              height="36"
+              className="h-9 w-9 rounded-lg object-cover shadow-sm"
+            />
+            <span className="hidden sm:inline">AI Consulting SA</span>
           </a>
           <div className="hidden items-center gap-7 text-sm font-medium text-slate-600 lg:flex">
             <a href="#meet-dominic" className="hover:text-slate-950">Meet Dominic</a>
