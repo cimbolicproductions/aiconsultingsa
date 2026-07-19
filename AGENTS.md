@@ -22,6 +22,7 @@ npm run dev
 - The homepage is founder led and pain first. Dominic is presented as a San Antonio operator who diagnoses calls, paperwork, and handoff problems before recommending AI or software.
 - Keep the public assessment method aligned with the canonical playbook: Diagnose, Research, Prescribe, Review. Implementation is optional, separately scoped, and never implied to be part of the $999 assessment.
 - The homepage founder panel is a 16:9 media slot that currently uses `public/founder-avatar.svg`. When a real introduction video is added, use a poster and click to load facade, do not autoplay the full player, and provide a transcript.
+- Homepage hero QA must include 1366x768, 390x844, and the 1520x734 CSS viewport produced by a typical 125% browser zoom. On desktop, the primary and phone CTAs, the supporting price line, and the full founder panel must fit inside `window.innerHeight` with no horizontal overflow. Verify this with DOM rectangles, not a width-only screenshot.
 - The static long-tail page is `public/ai-phone-answering/index.html`.
 - Static long-tail pages under `public/<slug>/index.html` must be verified with `npm run build` plus `npm run preview`; Vite dev may serve the React homepage fallback for trailing slash routes like `/ai-phone-answering/`.
 - Keep sitemap URLs canonical and absolute. For GSC domain properties, submit the full sitemap URL: `https://aiconsultingsa.com/sitemap.xml`.

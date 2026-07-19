@@ -152,19 +152,19 @@ export default function AIConsultingServicesPage() {
       </nav>
 
       <header className="site-hero overflow-hidden border-b border-stone-300">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-8 lg:py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-8 2xl:py-16">
           <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-stone-300 bg-white/80 px-3.5 py-2 text-sm font-semibold text-slate-700 shadow-sm">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-stone-300 bg-white/80 px-3.5 py-2 text-sm font-semibold text-slate-700 shadow-sm">
               <MapPin className="h-4 w-4 text-orange-800" />
               San Antonio AI consultant and local operator
             </div>
-            <h1 className="max-w-4xl font-serif text-5xl leading-[0.98] tracking-[-0.035em] text-slate-950 sm:text-6xl lg:text-7xl">
+            <h1 className="max-w-4xl font-serif text-4xl leading-[0.98] tracking-[-0.035em] text-slate-950 sm:text-5xl lg:text-6xl 2xl:text-7xl">
               San Antonio AI consulting for the work you&rsquo;re tired of fighting.
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-700 sm:text-xl">
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-700 2xl:text-xl">
               I&rsquo;m Dominic. Show me the part of your business that eats time, drops details, or keeps landing back on your plate. I&rsquo;ll diagnose what is actually wrong and give you a practical prescription before you spend another dollar on software.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#contact"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-orange-800 px-6 py-3.5 font-semibold text-white shadow-sm hover:bg-orange-900"
@@ -203,17 +203,16 @@ export default function AIConsultingServicesPage() {
                 </div>
               </div>
             </div>
-            <div className="relative space-y-5 p-7 text-lg leading-8 text-slate-200 sm:p-9">
+            <div className="relative space-y-3 p-6 text-base leading-7 text-slate-200 sm:p-7">
               <p>
                 You probably do not need more software. You need someone to look at the work with fresh eyes.
               </p>
               <p>
-                I run local service businesses too. I have dealt with missed calls, reminders, payments, paperwork, and the quiet mess created when nothing talks to anything else.
+                I run local service businesses too. Missed calls, reminders, payments, and paperwork are familiar problems.
               </p>
-              <p className="border-l-2 border-orange-400 pl-5 font-serif text-xl leading-8 text-white">
-                My job is to find the smallest change that makes the biggest difference. Sometimes it is AI. Sometimes it is ordinary software. Sometimes it is a checklist.
+              <p className="border-l-2 border-orange-400 pl-4 font-serif text-lg leading-7 text-white">
+                I look for the smallest fix: AI, ordinary software, or a checklist. I will tell you which.
               </p>
-              <p className="font-semibold text-white">I will tell you which.</p>
             </div>
           </aside>
         </div>
