@@ -65,14 +65,15 @@ One line per win: the pain in a phrase, an arrow, the tool. Nothing more.
 The heart of the report. You will spend about half the review call on this slide. One block per tool:
 
 ```
-Tool: <name>
+Fix: <tool name, or the existing-tool feature, or the process change>
+Type: <existing tool feature | process change | new tool>
 Solves: <the exact pain point>
-Cost: $<x>/month
+Cost: $<x>/month   ($0 for existing features and process changes)
 Setup time: <e.g. 30 minutes>
 Time saved: <e.g. 2 hours/week>
 ```
 
-Then it is boom, boom, boom, one to the next. This is the pain / tool / cost / setup / savings rhythm.
+Then it is boom, boom, boom, one to the next. This is the pain / fix / cost / setup / savings rhythm. A $0 line item (an unused feature they already pay for, or a checklist) is not filler; it is the proof that the website's "you probably do not need more software" promise was real.
 
 ### 6. Four-day quick start plan
 
@@ -100,13 +101,15 @@ Beyond the quick wins, these higher-impact projects need a build:
 Quantify the ROI in the client's own numbers. Transparent assumptions, no invented figures.
 
 ```
-Monthly net ROI = (weekly hours reclaimed × your hourly rate × ~4.3 weeks) − monthly tool cost
+Monthly net ROI = (weekly hours reclaimed × your hourly rate × 4.33 weeks) − monthly tool cost
 
 Weekly hours reclaimed: <e.g. 7>
 Your hourly rate: $<e.g. 150>
 Monthly tool cost: $<avg lands around 60>
 → Monthly net ROI: $<result>
 ```
+
+(4.33 is the multiplier the public site states. Keep the site, the report, and this file on the same number.)
 
 The average prescribed tool stack runs about $60/month. Reclaiming ~7 hours a week against most owners' hourly value lands the ROI in the four figures a month, sometimes five. State assumptions on the slide so it reads as honest math, not a sales claim.
 

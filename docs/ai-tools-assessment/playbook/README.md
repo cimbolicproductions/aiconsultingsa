@@ -10,13 +10,14 @@ The website sells the assessment. This playbook delivers it. Research, quality c
 
 Sit with a small business owner for 45 minutes, pull out their biggest time drains, and prescribe three to seven off-the-shelf AI or SaaS tools that reclaim five to ten hours a week. You are a doctor writing a prescription, not a builder. The $999 assessment is the foot in the door. The real money is the implementation and retainer upsells it opens.
 
-Ideal client: owner-led business, roughly 2 to 20 employees, $500k to $5M revenue. (Note: the public site deliberately does not publish the employee-count limit or the money-back promise. Keep those internal.)
+Ideal client: owner-led business, roughly 2 to 20 employees, $500k to $5M revenue. That range is internal targeting guidance only: the public fit is "an owner led San Antonio service business with a repeated workflow," and the site explicitly says team size does not determine eligibility. (The site also deliberately omits the money-back promise. Keep both internal.)
 
-## How to run it (four phases)
+## How to run it (five phases)
 
 | Phase | File | What happens | Who leads |
 |-------|------|--------------|-----------|
-| 1. Discovery call | [`01-phase-1-discovery-call.md`](01-phase-1-discovery-call.md) | 45-min recorded interview. Ask, probe, never pitch. | You (live) |
+| 0. Lead intake | [`00-phase-0-lead-intake-free-review.md`](00-phase-0-lead-intake-free-review.md) | Free workflow review reply, qualify, collect $999, schedule, agree data boundaries. | You (email) |
+| 1. Discovery call | [`01-phase-1-discovery-call.md`](01-phase-1-discovery-call.md) | 45-min recorded interview. Ask, probe, never pitch. Capture the current tool stack. | You (live) |
 | 2. AI research | [`02-phase-2-ai-research-prompt.md`](02-phase-2-ai-research-prompt.md) | Feed the transcript to Claude, research real tools, human QA pass. | Claude + you |
 | 3. Report | [`03-phase-3-report-template.md`](03-phase-3-report-template.md) | Fill the 9-part template, build it in Claude Design. | Claude + you |
 | 4. Review call | [`04-phase-4-review-call.md`](04-phase-4-review-call.md) | Screen-share the report, ask the 3 closing questions. | You (live) |

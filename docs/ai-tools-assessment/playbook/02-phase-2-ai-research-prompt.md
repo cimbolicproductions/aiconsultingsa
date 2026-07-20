@@ -2,6 +2,10 @@
 
 Take the transcript from the Phase 1 note-taker and hand it to Claude. Claude catches patterns you missed and finds tools you did not know existed. It gets you 60 to 70 percent of the way there on your first few assessments and close to copy-paste by your fourth, fifth, or sixth as the prompt gets dialed in.
 
+## Before the transcript touches AI: scrub it
+
+Honor the [Phase 0](00-phase-0-lead-intake-free-review.md) data-boundaries agreement. Remove anything the client excluded, plus anything that does not need to be in a prompt anyway: their customers' names and contact details, credentials, payroll/medical/legal specifics. The workflow matters; the private data inside it does not.
+
 ## The simple baseline prompt (Corey's words, verbatim)
 
 Good enough to start. Attach the transcript, then:
@@ -19,22 +23,34 @@ of a 45-minute discovery call with a small business owner.
 CONTEXT
 - Business: <name, industry, headcount, rough revenue>
 - Their effective hourly rate: $<rate>   (used for ROI math; if unknown, say so)
+- Tools they already pay for: <the Phase 1 stack inventory, with "paid but unused"
+  flagged>
 
 DO THIS
 1. Extract every distinct pain point, bottleneck, or dreaded/repetitive task in the
    transcript. Quote the line that shows it. Estimate hours per week it costs.
-2. For each pain point, go on the internet and find a specific, real, off-the-shelf
-   SaaS or AI tool that fixes it. Prefer tools that are simple for a non-technical
-   owner to adopt. Right-size to the business: a 4-person landscaper does not need
-   Salesforce.
-3. For each recommended tool, verify against its own current website and return:
-   - Tool name and one-line description
+2. For each pain point, work in this order and stop at the first level that solves it:
+   a. EXISTING STACK: can a tool they already pay for solve it (an unused feature,
+      an integration, a setting)? Prescribing $0 solutions builds more trust than
+      any new tool.
+   b. PROCESS CHANGE: would a simpler process, a template, or a checklist solve it
+      without any software?
+   c. NEW TOOL: only now, go on the internet and find a specific, real, off-the-shelf
+      SaaS or AI tool that fixes it. Prefer tools that are simple for a non-technical
+      owner to adopt. Right-size to the business: a 4-person landscaper does not need
+      Salesforce.
+3. For each recommendation, return:
+   - Type: EXISTING TOOL FEATURE, PROCESS CHANGE, or NEW TOOL
+   - Name and one-line description (for a process change, name the new process)
    - The exact pain point it solves
-   - Current price (per month): pull the real number, do not guess
+   - Current price (per month): pull the real number from the tool's own current
+     website, do not guess ($0 for existing features and process changes)
    - Setup time (realistic, in minutes/hours)
    - Estimated hours/week it saves
    - Which of the three ROI levers it pulls: EFFECTIVENESS (makes money),
      EFFICIENCY (saves time), or QUALITY (better product/service)
+   - What data it would hold, and whether the client can appropriately put that
+     data there (customer PII, financials, health or legal data)
 4. Separate the findings into two buckets:
    - QUICK WINS: high impact, low effort. An off-the-shelf tool they can sign up for
      and use immediately.
@@ -63,6 +79,8 @@ Check each line:
 - [ ] Is it right-sized for this business?
 - [ ] Does it actually solve the quoted pain?
 - [ ] Does it pull at least one of the three levers?
+- [ ] Could their existing stack or a process change have solved this instead? (If yes, the cheaper prescription wins. The website promises this order.)
+- [ ] Security and data fit: what data goes into this tool, and is the client allowed to put it there?
 
 ## The three ROI levers
 
