@@ -159,10 +159,10 @@ export default function AIConsultingServicesPage() {
               San Antonio AI consultant and local operator
             </div>
             <h1 className="max-w-4xl font-serif text-4xl leading-[0.98] tracking-[-0.035em] text-slate-950 sm:text-5xl lg:text-6xl 2xl:text-7xl">
-              San Antonio AI consulting for the work you&rsquo;re tired of fighting.
+              AI consulting in San Antonio for the work you&rsquo;re tired of fighting.
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-700 2xl:text-xl">
-              I&rsquo;m Dominic. Show me the part of your business that eats time, drops details, or keeps landing back on your plate. I&rsquo;ll diagnose what is actually wrong and give you a practical prescription before you spend another dollar on software.
+              I&rsquo;m Dominic, a San Antonio operator. Show me the part of your business that eats time, drops details, or keeps landing back on your plate. I&rsquo;ll diagnose what is actually wrong and give you a practical prescription before you spend another dollar on software.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
@@ -181,7 +181,11 @@ export default function AIConsultingServicesPage() {
               </a>
             </div>
             <p className="mt-4 text-sm leading-6 text-slate-600">
-              Start with a free workflow review. If the fit is right, the complete AI Tools Assessment is a flat $999.
+              Start with a free workflow review. If the fit is right, the complete{' '}
+              <a href="/ai-tools-assessment-san-antonio/" className="font-semibold text-orange-800 underline decoration-orange-300 underline-offset-2 hover:text-orange-950">
+                AI Tools Assessment
+              </a>{' '}
+              is a flat $999.
             </p>
           </div>
 
@@ -320,7 +324,7 @@ export default function AIConsultingServicesPage() {
                 The assessment ends with a prescription, not a pile of ideas.
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-                A useful report should tell you what hurts, why it is happening, what can change quickly, and what the change is worth. The podcast model calls for three to seven right sized recommendations. That discipline stays intact here.
+                A useful report should tell you what hurts, why it is happening, what can change quickly, and what the change is worth. You get three to seven right sized recommendations, small enough to act on and big enough to matter.
               </p>
               <div className="mt-9 grid gap-px overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-2">
                 {[
@@ -370,7 +374,7 @@ export default function AIConsultingServicesPage() {
                   Diagnose. Research. Prescribe. Review.
                 </h2>
                 <p className="mt-5 max-w-lg text-lg leading-8 text-slate-600">
-                  This is the Startup Ideas Podcast model translated into a clear client experience. Implementation comes after the diagnosis, and only if you want help.
+                  The same four steps every time, so you always know where you are. Implementation comes after the diagnosis, and only if you want help.
                 </p>
               </div>
 

@@ -1,12 +1,12 @@
 :root {
   color-scheme: light;
-  --bg: #fafaf9;
+  --bg: #f7f2e9;
   --panel: #ffffff;
   --ink: #0f172a;
   --muted: #475569;
-  --line: #e2e8f0;
-  --accent: #1d4ed8;
-  --accent-dark: #1e3a8a;
+  --line: #d6d3d1;
+  --accent: #9a3412;
+  --accent-dark: #7c2d12;
   --warm: #b45309;
 }
 
@@ -111,6 +111,8 @@ h1,
 h2,
 h3 {
   margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
   letter-spacing: 0;
 }
 
@@ -257,9 +259,31 @@ li {
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  background: #dbeafe;
+  background: #ffedd5;
   color: var(--accent);
   font-weight: 800;
+}
+
+.report-figure {
+  margin: 28px 0 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.report-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.report-figure figcaption {
+  border-top: 1px solid var(--line);
+  padding: 12px 20px;
+  color: var(--muted);
+  font-size: 14px;
 }
 
 .faq details {
