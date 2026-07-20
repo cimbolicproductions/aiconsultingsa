@@ -36,7 +36,7 @@ Five parts, in order. Keep it short enough to read on a phone.
 >
 > Straight answer on fit: yes, this is exactly what the $999 assessment is built for. We do a 45 minute recorded call (only with your permission), I research what actually fits your business, and you get three to seven prioritized recommendations, a four day start plan, and a 30 minute review where we walk it together.
 >
-> If you want it, the next step is here: [payment link]. Once that is in, you will get my calendar and a short pre-call note about what we keep out of the recording.
+> If you want it, the next step is here: [payment link]. Once that is in, reply with a couple of days and times that work for you and we will lock in the call. I will also send a short pre-call note about what we keep out of the recording.
 >
 > If you would rather talk first, call me: (210) 802-8945.
 >
@@ -73,7 +73,7 @@ Five parts, in order. Keep it short enough to read on a phone.
 Payment comes before the discovery call. It filters tire kickers, and a paid client shows up prepared.
 
 - **Payment**: a Stripe Payment Link for the $999 assessment, created once in the Stripe dashboard (Products, then Payment Links; no code needed). Put the link in the FIT email.
-- **Scheduling**: a dedicated Calendly event, "AI Tools Assessment - Discovery (45 min)". Keep it separate from the free-call event so the calendar itself reinforces that this is the paid engagement. Send the scheduling link in the payment confirmation, or automate it as the Stripe payment-link confirmation redirect.
+- **Scheduling**: no booking tool. At this volume, just agree on a time by email or text: once payment lands, propose two or three concrete windows ("Tuesday 10am, Wednesday 2pm, or Thursday morning?"), let them pick or counter, then send a Google Calendar invite with a Meet link for the agreed slot. The calendar invite is what makes it real: it carries the video link and blocks both calendars. Revisit a booking link only if the back-and-forth ever becomes the bottleneck.
 
 ## Step 4: The pre-call package (the privacy promise, kept)
 
