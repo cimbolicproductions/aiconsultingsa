@@ -28,6 +28,10 @@ npm run dev
 - Keep sitemap URLs canonical and absolute. For GSC domain properties, submit the full sitemap URL: `https://aiconsultingsa.com/sitemap.xml`.
 - Keep the React homepage, raw homepage fallback, visible FAQs, JSON-LD, static service page CTAs, sitemap, and redirects aligned to the same offer.
 - Lead capture uses matching React and raw homepage forms that post to `/api/lead/`. The Vercel Function sends an authenticated Resend batch with the private lead notification and customer confirmation. Production requires `LEAD_RECIPIENT_EMAIL`, `RESEND_API_KEY`, and `RESEND_FROM_EMAIL` on a verified sending domain. Never put these values in client code or public HTML. Static service CTAs route to `/#contact`; keep both form copies, the API contract, customer confirmation copy, and success URL synchronized.
+- DNS for `aiconsultingsa.com` is managed at Namecheap, not Vercel. The nameservers are `dns1/dns2.registrar-servers.com`, so the Vercel CLI and MCP cannot write these records.
+- Namecheap Mail Settings is set to `Custom MX`. It must stay there. Namecheap hides the MX record type entirely in `Email Forwarding` mode, which makes the Resend `send` subdomain records impossible to add. Switching modes silently drops the root `eforward*.registrar-servers.com` MX records and the locked root SPF TXT.
+- `hello@aiconsultingsa.com` is send only and receives no inbound mail. That is not a regression, since no email redirect was ever defined. Lead replies work because the notification sets `reply_to` to the lead address and the confirmation sets it to `LEAD_RECIPIENT_EMAIL`. To make the address receive mail, add the five `eforward*` MX records back as Custom MX rows and define a redirect under Domain > Redirect Email.
+- Never transcribe a Resend DKIM value from the dashboard. The UI truncates it and a relayed copy has already been silently corrupted once. Read records from the Resend API instead, and validate that the base64 after `p=` decodes to a well formed key whose ASN.1 declared length matches its actual byte length.
 
 ## Memory And Closeout Rules
 
@@ -44,3 +48,9 @@ npm run dev
 - Before large edits or any push, check `git status`, recent commits, and what is leaving the branch.
 - Verify changes with the smallest useful check: usually `npm run build`, `npm run lint`, or a targeted browser/live URL check.
 - Avoid em dashes in user-facing copy unless quoting source text.
+
+<!-- growth-brain:start -->
+## Growth Brain
+
+At session start, read only `D:\Documents\My thoughts\Growth Brain\Businesses\ai-first-solutions\agent-brief.md`. State its `reviewed_through`, verdict, and next move in one sentence, then ask Dominic whether to refresh the evidence or inspect the change. Open its linked notes only for growth work. Never apply, commit, push, deploy, or start an experiment without Dominic's explicit approval in the current session.
+<!-- growth-brain:end -->

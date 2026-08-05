@@ -131,7 +131,31 @@ Replace FormSubmit with Resend's authenticated batch email API. Send the interna
 - **Production configuration:** Vercel Production contains all three required variables. The temporary sender is `AI Consulting SA <hello@apexskills.dev>`, backed by a send-only key scoped to the verified `apexskills.dev` domain.
 - **Deployment:** Commit `d75d5fb`, Vercel deployment `dpl_8CaUf2NjN9ZY4wiRL5tfDazDZcBs`, Ready on 2026-07-18.
 - **Production verification:** A labeled live submission returned the expected 303 success redirect. Resend reported both messages delivered, and Gmail showed both the internal notification and customer confirmation in the inbox.
-- **Remaining follow-up:** Move the sender and rotate the key to `aiconsultingsa.com` when a dedicated Resend domain slot is available.
+- **Remaining follow-up:** Resolved. See the sender migration below.
+
+## Sender Migration To aiconsultingsa.com
+
+Recorded 2026-08-04. The temporary `apexskills.dev` sender existed only because the Resend free tier allows exactly one verified domain. A Pro upgrade removed that limit, so the site moved to its own aligned sending identity.
+
+### Why It Mattered Beyond Tidiness
+
+Production sent as `AI Consulting SA <hello@apexskills.dev>`. A display name from one brand over a domain from another is a phishing signal that mailbox providers act on. A real inbound submission on 2026-08-02 was accepted and marked delivered by Resend, but the owner never saw it, which is the expected outcome when a misaligned sender is filed as spam.
+
+### DNS Facts
+
+- DNS is managed at Namecheap, not Vercel. The Vercel CLI and MCP cannot write these records.
+- Namecheap Mail Settings had to move from `Email Forwarding` to `Custom MX`, because Namecheap hides the MX record type entirely in forwarding mode. The switch dropped the root `eforward*` MX records and the locked root SPF TXT. That was safe here only because no email redirect had ever been defined, so those records delivered to nothing. Verify that before repeating this on another domain.
+- `hello@aiconsultingsa.com` is send only and receives no inbound mail. Replies still work, because the notification sets `reply_to` to the lead and the confirmation sets it to `LEAD_RECIPIENT_EMAIL`.
+
+### Transcription Hazard
+
+The Resend dashboard truncates the DKIM value for display. A relayed copy of it was saved to DNS with a corrupted tail: the first 97 characters were correct and the remainder was plausible but wrong base64. Length and prefix checks both passed. The corruption was only caught by decoding the value and comparing the ASN.1 declared length against the actual byte length, which disagreed by four bytes.
+
+Read DNS records from the Resend API rather than the dashboard, and validate that the base64 after `p=` decodes to a well formed key whose declared length matches its actual length before trusting it.
+
+### Delivery Is Not Acceptance
+
+`api/lead.js` correctly treats a rejected batch as failure, but a Resend acceptance only proves the message was queued. Delivery outcome lives in `last_event` on the Resend email record. Any future investigation into a missing lead should check `last_event` rather than assuming acceptance means the owner received it.
 
 ## References
 
