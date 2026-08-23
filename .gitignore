@@ -24,3 +24,9 @@ dist-ssr
 *.sw?
 
 .vercel
+
+# Local agent state and generated working artifacts
+.claude/settings.local.json
+.claude/worktrees/
+__pycache__/
+docs/ai-tools-assessment/working/
