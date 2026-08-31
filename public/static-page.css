@@ -343,3 +343,54 @@ li {
     width: 100%;
   }
 }
+
+.table-scroll {
+  overflow-x: auto;
+  margin-top: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.cost-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.cost-table th,
+.cost-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.cost-table thead th {
+  color: var(--warm);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.cost-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.cost-table .mine {
+  background: #fffbeb;
+}
+
+.cost-table .amount {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.source-note {
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--muted);
+}
