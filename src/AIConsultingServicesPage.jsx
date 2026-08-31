@@ -156,13 +156,13 @@ export default function AIConsultingServicesPage() {
           <div>
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-stone-300 bg-white/80 px-3.5 py-2 text-sm font-semibold text-slate-700 shadow-sm">
               <MapPin className="h-4 w-4 text-orange-800" />
-              San Antonio AI consultant and local operator
+              San Antonio AI search consultant and local operator
             </div>
             <h1 className="max-w-4xl font-serif text-4xl leading-[0.98] tracking-[-0.035em] text-slate-950 sm:text-5xl lg:text-6xl 2xl:text-7xl">
-              AI consulting in San Antonio for the work you&rsquo;re tired of fighting.
+              ChatGPT is already recommending someone in San Antonio. I make sure it&rsquo;s you.
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-700 2xl:text-xl">
-              I&rsquo;m Dominic, a San Antonio operator. Show me the part of your business that eats time, drops details, or keeps landing back on your plate. I&rsquo;ll diagnose what is actually wrong and give you a practical prescription before you spend another dollar on software.
+              I&rsquo;m Dominic, a San Antonio operator. I got my own rental company named as the top recommendation in ChatGPT and Gemini for its main search, and it brought in five customers last month that closed better than anything Facebook ever sent me. I do the same thing for other San Antonio businesses.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
@@ -181,7 +181,11 @@ export default function AIConsultingServicesPage() {
               </a>
             </div>
             <p className="mt-4 text-sm leading-6 text-slate-600">
-              Start with a free workflow review. If the fit is right, the complete{' '}
+              <a href="/chatgpt-optimization-san-antonio/" className="font-semibold text-orange-800 underline decoration-orange-300 underline-offset-2 hover:text-orange-950">
+                ChatGPT optimization
+              </a>{' '}
+              is a flat $500 per page, or $1,500 for up to five, with no retainer. If you do not know which
+              problem to fix first, the{' '}
               <a href="/ai-tools-assessment-san-antonio/" className="font-semibold text-orange-800 underline decoration-orange-300 underline-offset-2 hover:text-orange-950">
                 AI Tools Assessment
               </a>{' '}
@@ -520,6 +524,16 @@ export default function AIConsultingServicesPage() {
                     <input type="tel" name="phone" autoComplete="tel" className="mt-2 w-full rounded-xl border border-stone-300 bg-[#fffdf8] px-4 py-3 font-normal text-slate-950 outline-none focus:border-orange-700 focus:ring-2 focus:ring-orange-100" />
                   </label>
                 </div>
+                <label className="mt-5 block text-sm font-semibold text-slate-800">
+                  How did you find me? <span className="font-normal text-slate-500">(optional)</span>
+                  <input
+                    type="text"
+                    name="source"
+                    maxLength={300}
+                    placeholder="Google, ChatGPT, a friend, driving past..."
+                    className="mt-2 w-full rounded-xl border border-stone-300 bg-[#fffdf8] px-4 py-3 font-normal text-slate-950 outline-none focus:border-orange-700 focus:ring-2 focus:ring-orange-100"
+                  />
+                </label>
                 <label className="mt-5 block text-sm font-semibold text-slate-800">
                   If you could wave a magic wand and delete one process, what would it be?
                   <textarea

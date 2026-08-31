@@ -76,6 +76,7 @@ function createDeliveryBatch({ lead, recipient, sender }) {
   const safeEmail = escapeHtml(lead.email);
   const safePhone = escapeHtml(lead.phone || 'Not provided');
   const safeWorkflow = escapeHtml(lead.workflow);
+  const safeSource = escapeHtml(lead.source || 'Not provided');
   const safeFirstName = escapeHtml(firstName(lead.name));
 
   const notificationText = [
@@ -85,6 +86,7 @@ function createDeliveryBatch({ lead, recipient, sender }) {
     `Business: ${lead.business}`,
     `Email: ${lead.email}`,
     `Phone: ${lead.phone || 'Not provided'}`,
+    `How they found us: ${lead.source || 'Not provided'}`,
     '',
     'Workflow:',
     lead.workflow,
@@ -121,6 +123,7 @@ function createDeliveryBatch({ lead, recipient, sender }) {
               <tr><td style="padding:8px 12px 8px 0;font-weight:700;vertical-align:top;">Name</td><td style="padding:8px 0;">${safeName}</td></tr>
               <tr><td style="padding:8px 12px 8px 0;font-weight:700;vertical-align:top;">Email</td><td style="padding:8px 0;"><a href="mailto:${safeEmail}" style="color:#2563eb;">${safeEmail}</a></td></tr>
               <tr><td style="padding:8px 12px 8px 0;font-weight:700;vertical-align:top;">Phone</td><td style="padding:8px 0;">${safePhone}</td></tr>
+              <tr><td style="padding:8px 12px 8px 0;font-weight:700;vertical-align:top;">Found us via</td><td style="padding:8px 0;">${safeSource}</td></tr>
             </table>
             <h2 style="margin:28px 0 10px;font-size:18px;">Workflow</h2>
             <div style="white-space:pre-wrap;background:#f8fafc;border-radius:8px;padding:16px;line-height:1.65;color:#334155;">${safeWorkflow}</div>
@@ -200,6 +203,7 @@ export default {
       email: readField(formData, 'email', 254),
       phone: readField(formData, 'phone', 50),
       workflow: readField(formData, 'workflow', 5000),
+      source: readField(formData, 'source', 300),
     };
 
     if (lead.name.length < 2 || lead.business.length < 2 || !isValidEmail(lead.email) || lead.workflow.length < 10) {
