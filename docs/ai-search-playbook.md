@@ -2,6 +2,8 @@
 
 Why RentWashersSA gets found in AI search and aiconsultingsa.com does not, and the rule that closes the gap.
 
+**Status: mechanism CONFIRMED 2026-08-30** with citations from two independent engines. See Evidence below.
+
 ---
 
 ## The observation
@@ -10,64 +12,107 @@ RentWashersSA pulls leads out of ChatGPT and Gemini search. aiconsultingsa.com p
 
 The instinct that these are the same channel and one just needs more work is wrong. They are different problems.
 
+---
+
+## Evidence (2026-08-30)
+
+Both engines, same query, "cheap washer and dryer rental," with the location inferred.
+
+**ChatGPT** named RentWashersSA first, extracted "$60/month for the washer + dryer set," and correctly listed free delivery, installation, maintenance, repairs, and no credit check. Then it ran a comparison:
+
+> Quack Washer and Dryer Rentals advertises **$59.99/month**, but its current terms show a service fee and tax bringing the actual total to about **$66.71/month**. There is also a 3-month minimum.
+>
+> So on actual recurring cost, Rent Washers SA appears cheaper at $60/month versus roughly $66.71/month for Quack.
+
+**Gemini** listed RentWashersSA first with the fullest description, while also surfacing genuinely cheaper headline prices: Quack single units at $24.99/mo and sets at $49.99 to $59.99, and A&A Appliance Leasing at $29.99/mo with a $74.99 signup fee.
+
+### What this actually proves
+
+**RentWashersSA won a price comparison against a competitor advertising a lower price.** Quack's headline is $59.99 against Dominic's $60. Quack is cheaper on the sticker and lost anyway, because ChatGPT found the gap between Quack's advertised number and its real total and penalized it.
+
+Gemini is the sharper case: Dominic is **not** the cheapest option on that page by a wide margin, and still got listed first with the most complete entry.
+
+The lesson is not "be cheapest." It is:
+
+> **The model rewards the number it can trust and penalizes the number it has to correct.**
+
+---
+
 ## Why the washer site wins
 
-Not because of AI SEO. Because of a structural gap:
+Three mechanics, all verifiable on the live page right now:
 
-**RentWashersSA publishes concrete, checkable facts about a narrow local transactional question that almost nobody else answers publicly.** Real prices. Rent to own terms. Service area. What is included.
+**1. The price is in the title tag.**
+`Washer & Dryer Rental San Antonio | $60/mo, No Credit Check`
+Format: what it is, where, then the price and the single biggest objection killer. The meta description repeats it: "Washer and dryer rental in San Antonio for $60/month."
 
-Rent-A-Center has roughly 56x the domain authority and still will not tell a San Antonio searcher what it actually costs. So when someone asks a model "how much does it cost to rent a washer and dryer in San Antonio," RentWashersSA is one of the only sources carrying an actual answer. The model has to reach for it.
+**2. Every FAQ is a question-shaped heading with a complete, self-contained answer underneath.**
 
-The moat is not authority. It is **willingness to publish the specifics the incumbents hide.**
+> **How much is washer and dryer rental in San Antonio?**
+> The standard rental set is $60/month. Delivery, installation, maintenance, and rental repairs are included.
 
-## Why it did not transfer
+That is a pre-built citation. The model does not synthesize anything, it lifts the sentence whole. Compare a page that makes the model assemble an answer from four paragraphs: it will reach for the easier source.
+
+**3. The number is all in, with inclusions enumerated, so there is no gap to discover.**
+$60 and here is everything that is included. Nothing hidden means nothing for a model to discount later. That is precisely what beat Quack.
+
+The moat is not domain authority. Rent-A-Center has roughly 56x and still will not tell a San Antonio searcher what it costs. **The moat is willingness to publish a complete number.**
+
+---
+
+## Why it did not transfer to the consulting site
 
 RentWashersSA answers a query where **the product is the answer.** Someone types the thing they want to buy.
 
-AI consulting is solution unaware. Business owners do not ask "who is an AI consultant in San Antonio." The GSC data confirms this: that entire query family showed about 38 searches a month, and the site ranked page one for it while producing 4 clicks in 90 days. The category query is a puddle.
+AI consulting is solution unaware. Business owners do not ask "who is an AI consultant in San Antonio." GSC confirms it: that query family showed about 38 searches a month, and the site ranked page one while producing 4 clicks in 90 days. The category query is a puddle.
 
-What owners actually ask is the pain:
-
-- how do I stop missing calls at my HVAC company
-- cheapest way to answer the phone after hours for a small business
-- how much does missed call text back cost
-- do I need a subscription for missed call text back
+What owners actually ask is the pain: how do I stop missing calls, what does after hours answering cost, do I need a subscription for this.
 
 **The site targeted the category. The buyers search the problem.**
 
+---
+
 ## The specific failure this repo had
 
-`/ai-phone-answering/` was well written and contained **zero dollar figures**. Not one number on the entire page. Every claim was qualitative: "Stop letting good calls die in voicemail," "Voicemail is not a sales process."
+`/ai-phone-answering/` was well written and contained **zero dollar figures**. Nothing for an answer engine to extract, so models cite the vendors, all of whom publish numbers and all of whom sell a monthly subscription.
 
-An answer engine asked what missed call handling costs had nothing to extract. So it cited the vendors, all of whom publish numbers, and all of whom are selling a monthly subscription.
+Research on 2026-08-30 confirmed the whole topic is vendor owned: AIRA from $24.95/mo, Nextiva from $15/mo, Podium and Birdeye and GoHighLevel class suites at $300 to $500/mo, Vida at $200 to $800/mo. **Every source answering the money question has a financial interest in the answer.** Same shape as Rent-A-Center refusing to publish rental prices.
 
-Research on 2026-08-30 confirmed the whole first page of that topic is vendor owned: AIRA from $24.95/mo, Nextiva from $15/mo, Podium and Birdeye and GoHighLevel class suites at $300 to $500/mo, Vida at $200 to $800/mo. **Every source answering the money question has a financial interest in the answer.** That is the same shape of gap as Rent-A-Center refusing to publish rental prices.
+---
 
 ## The rule
 
-> Publish the specific numbers your competitors will not, including the ones that cost you the sale.
+> Publish the complete number your competitors will not, in a shape the model can lift whole, including the parts that cost you the sale.
 
-Applied to that page: a real cost table down to Twilio's $1.15 per month phone number and $0.008 per message, an honest comparison showing options cheaper than hiring Dominic, and a "three reasons not to hire me" section. The honest disqualifier is not a concession. It is the most citable content on the page, because nobody else can write it.
+Applied to that page: a cost table down to Twilio's published $1.15/mo number and roughly $0.008 per message, an honest comparison showing the options cheaper than hiring Dominic, and a "three reasons not to hire me" section. The honest disqualifier is not a concession. It is the most citable content on the page, because nobody else can write it.
+
+Title updated 2026-08-30 to mirror the proven pattern: `AI Phone Answering San Antonio | $250 Setup, No Monthly Fee`. "No Monthly Fee" is the direct analog of "No Credit Check", the one objection that kills the sale.
+
+---
 
 ## Checklist for the remaining pages
 
 `/ai-document-automation-san-antonio/` and `/small-business-automation-san-antonio/` have the same defect. For each:
 
-1. **Name the real question.** Not the category. The thing an owner types at 9pm.
-2. **Answer the money question with digits.** A range is fine. Vagueness is not.
-3. **Show the options that beat you.** Including free and do it yourself.
-4. **State who should not hire you.** Specifically, with a threshold.
-5. **Cite your own numbers where possible.** RentWashersSA figures are unique to Dominic and cannot be copied. That is the strongest possible content, and it is currently unused.
-6. **Date the pricing and name the source.** "Verified against Twilio's published US pricing on 30 August 2026." Models weight sourced, dated claims.
-7. **Mirror it into the FAQ and the JSON-LD.** Answer engines lean on FAQ blocks heavily.
+1. **Put the number in the title tag.** Proven, not theoretical.
+2. **Name the real question.** Not the category. The thing an owner types at 9pm.
+3. **Answer the money question with digits.** A range is fine. Vagueness is not.
+4. **Make the number all in and enumerate the inclusions.** Any gap between your headline and your real total is what a model will find and hold against you. This is what beat Quack.
+5. **Shape every FAQ as a question with a complete standalone answer.** Do not make the model assemble it.
+6. **Show the options that beat you,** including free and do it yourself.
+7. **State who should not hire you,** specifically, with a threshold.
+8. **Date the pricing and name the source.** "Verified against Twilio's published US pricing on 30 August 2026."
+9. **Mirror it into the FAQ block and the JSON-LD.**
 
-## What is still unmeasured
+---
 
-The RentWashersSA AI search traffic is Dominic's live observation and is **not documented anywhere in the vault.** Before investing further, confirm and size it:
+## Still unmeasured
+
+Citation is confirmed. **Lead volume is not.** Two engines naming the business is not the same as knowing how many customers arrive that way.
 
 - Check analytics referrers for `chatgpt.com`, `perplexity.ai`, `gemini.google.com`, `copilot.microsoft.com`
 - Ask every new lead how they found the business, and write the answer down
 
-Ahrefs Brand Radar tracks AI citations directly but the current plan is gated (`Insufficient plan` on 2026-08-30), so the referrer check is the free substitute.
+**One confound worth ruling out.** The ChatGPT screenshot closes with "your Rent Washers SA site is already appearing extremely prominently in my current web results," which means that session knew Dominic owns the business. Personalization or memory could be influencing placement. Re-run the same query logged out or in a temporary chat to see what a cold prospect actually gets. The Gemini result is the stronger evidence precisely because it carries no owner framing.
 
-If it turns out to be two leads, this is an anecdote and outbound stays the priority. If it is twenty, this playbook is the highest leverage work in the business.
+Ahrefs Brand Radar tracks AI citations directly but the plan is gated (`Insufficient plan`, confirmed 2026-08-30).
