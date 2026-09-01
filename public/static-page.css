@@ -478,3 +478,12 @@ li {
     font-size: 32px;
   }
 }
+
+.cost-table th small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+}
