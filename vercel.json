@@ -28,6 +28,11 @@
       "permanent": true
     },
     {
+      "source": "/do-i-need-to-pay-for-ai-san-antonio/index.html",
+      "destination": "https://aiconsultingsa.com/do-i-need-to-pay-for-ai-san-antonio/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.aiconsultingsa.com" }],
       "destination": "https://aiconsultingsa.com/:path*",

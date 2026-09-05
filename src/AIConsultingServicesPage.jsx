@@ -564,6 +564,7 @@ export default function AIConsultingServicesPage() {
             <p className="mt-3 text-sm">San Antonio, Texas &middot; <a href="tel:+12108028945" className="text-white hover:text-orange-300">(210) 802-8945</a></p>
           </div>
           <div className="flex flex-wrap gap-x-5 gap-y-3 text-sm">
+            <a href="/do-i-need-to-pay-for-ai-san-antonio/" className="hover:text-white">Do I need to pay?</a>
             <a href="/ai-tools-assessment-san-antonio/" className="hover:text-white">AI Tools Assessment</a>
             <a href="/ai-phone-answering/" className="hover:text-white">Phone answering</a>
             <a href="/ai-document-automation-san-antonio/" className="hover:text-white">Document automation</a>
