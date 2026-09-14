@@ -159,10 +159,10 @@ export default function AIConsultingServicesPage() {
               San Antonio AI search consultant and local operator
             </div>
             <h1 className="max-w-4xl font-serif text-4xl leading-[0.98] tracking-[-0.035em] text-slate-950 sm:text-5xl lg:text-6xl 2xl:text-7xl">
-              ChatGPT is already recommending someone in San Antonio. I make sure it&rsquo;s you.
+              ChatGPT is already recommending someone in San Antonio.
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-700 2xl:text-xl">
-              I&rsquo;m Dominic, a San Antonio operator. I got my own rental company named as the top recommendation in ChatGPT and Gemini for its main search, and it brought in five customers last month that closed better than anything Facebook ever sent me. I do the same thing for other San Antonio businesses.
+              I&rsquo;m Dominic, a San Antonio operator. I help San Antonio businesses make their services easier to find and understand in search and AI answers. In August 2026 both ChatGPT and Gemini named my own rental company first for its main search, and I counted about five customers from that channel. That is my own count of my own leads rather than an instrumented number, and no one can promise you a specific answer from a model they do not control.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
@@ -248,7 +248,7 @@ export default function AIConsultingServicesPage() {
                     You are driving, under a sink, with a customer, or helping your team. The caller gets silence, and you inherit another callback with no context.
                   </p>
                   <a href="/ai-phone-answering/" className="mt-5 inline-flex items-center gap-2 font-semibold text-orange-800 hover:text-orange-950">
-                    See the phone answering path <ArrowRight className="h-4 w-4" />
+                    AI phone answering for auto shops <ArrowRight className="h-4 w-4" />
                   </a>
                 </div>
                 <div className="rounded-2xl bg-slate-950 p-5 text-white shadow-xl">
