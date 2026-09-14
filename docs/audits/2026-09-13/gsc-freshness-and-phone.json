@@ -1,0 +1,116 @@
+{
+  "retrievedAt": "2026-09-13T13:28:13.685Z",
+  "source": "GSC Search Analytics API",
+  "reports": {
+    "phonePage90d": {
+      "request": {
+        "startDate": "2026-06-13",
+        "endDate": "2026-09-10",
+        "type": "web",
+        "dataState": "final",
+        "dimensions": [
+          "page"
+        ],
+        "dimensionFilterGroups": [
+          {
+            "groupType": "and",
+            "filters": [
+              {
+                "dimension": "page",
+                "operator": "contains",
+                "expression": "/ai-phone-answering"
+              }
+            ]
+          }
+        ],
+        "rowLimit": 25000
+      },
+      "response": {
+        "responseAggregationType": "byPage"
+      }
+    },
+    "freshness": {
+      "request": {
+        "startDate": "2026-09-06",
+        "endDate": "2026-09-12",
+        "type": "web",
+        "dataState": "all",
+        "dimensions": [
+          "date"
+        ],
+        "rowLimit": 25000
+      },
+      "response": {
+        "rows": [
+          {
+            "keys": [
+              "2026-09-06"
+            ],
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 68.5
+          },
+          {
+            "keys": [
+              "2026-09-07"
+            ],
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 69.5
+          },
+          {
+            "keys": [
+              "2026-09-08"
+            ],
+            "clicks": 0,
+            "impressions": 6,
+            "ctr": 0,
+            "position": 18.333333333333332
+          },
+          {
+            "keys": [
+              "2026-09-09"
+            ],
+            "clicks": 0,
+            "impressions": 13,
+            "ctr": 0,
+            "position": 23.23076923076923
+          },
+          {
+            "keys": [
+              "2026-09-10"
+            ],
+            "clicks": 0,
+            "impressions": 5,
+            "ctr": 0,
+            "position": 14.8
+          },
+          {
+            "keys": [
+              "2026-09-11"
+            ],
+            "clicks": 0,
+            "impressions": 5,
+            "ctr": 0,
+            "position": 17.4
+          },
+          {
+            "keys": [
+              "2026-09-12"
+            ],
+            "clicks": 0,
+            "impressions": 8,
+            "ctr": 0,
+            "position": 33.625
+          }
+        ],
+        "responseAggregationType": "byProperty",
+        "metadata": {
+          "firstIncompleteDate": "2026-09-11"
+        }
+      }
+    }
+  }
+}

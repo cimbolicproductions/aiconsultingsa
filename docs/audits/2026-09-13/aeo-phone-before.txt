@@ -1,0 +1,27 @@
+
+AEO EXTRACTABILITY AUDIT
+https://aiconsultingsa.com/ai-phone-answering/
+==================================================================
+[PASS] 1. Number in <title>
+       AI Phone Answering San Antonio | From $250, No Contract
+[PASS] 2. Number in meta description
+       What missed call handling actually costs in 2026, with real Twilio pricing. Raw carrier co...
+[PASS] 3. Money question answered
+       15 distinct price tokens: $0.00, $1.15, $100, $15, $20, $200, $25, $250
+[PASS] 4. Question shaped headings (>=3)
+       6 found: How much does missed call text back cost for a small busines...
+[PASS] 5. Standalone answers [heuristic]
+       HEURISTIC - count only. Read each answer: does it stand alone with no pronoun pointing at an earlier section?
+[PASS] 6. FAQPage JSON-LD
+       found=True parses=True questions=6
+[PASS] 7. All in pricing [heuristic]
+       HEURISTIC - inclusion language present near pricing. Confirm every price says what is included.
+==================================================================
+SCORE: 7/7
+VERDICT: structurally citable. Now run the extraction test by hand.
+
+EXTRACTION TEST (not automatable, do it yourself):
+  Can you answer the target question by copying ONE sentence from this
+  page, with no synthesis and no stitching? If no, the page fails
+  regardless of the score above.
+

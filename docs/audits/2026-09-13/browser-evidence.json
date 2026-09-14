@@ -1,0 +1,418 @@
+{
+  "retrievedAt": "2026-09-13T19:15:37.306Z",
+  "browser": "Playwright Chromium, headless",
+  "reports": [
+    {
+      "name": "phone-desktop",
+      "url": "https://aiconsultingsa.com/ai-phone-answering/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "title": "AI Phone Answering San Antonio | From $250, No Contract",
+      "h1": [
+        "Stop letting good calls die in voicemail."
+      ],
+      "scrollWidth": 1366,
+      "links": [
+        {
+          "text": "AI Consulting SA",
+          "href": "/",
+          "inViewport": true
+        },
+        {
+          "text": "AI Tools Assessment",
+          "href": "/ai-tools-assessment-san-antonio/",
+          "inViewport": true
+        },
+        {
+          "text": "Document automation",
+          "href": "/ai-document-automation-san-antonio/",
+          "inViewport": true
+        },
+        {
+          "text": "Small business automation",
+          "href": "/small-business-automation-san-antonio/",
+          "inViewport": true
+        },
+        {
+          "text": "ChatGPT optimization",
+          "href": "/chatgpt-optimization-san-antonio/",
+          "inViewport": true
+        },
+        {
+          "text": "Real costs",
+          "href": "/do-i-need-to-pay-for-ai-san-antonio/",
+          "inViewport": true
+        },
+        {
+          "text": "(210) 802-8945",
+          "href": "tel:+12108028945",
+          "inViewport": true
+        },
+        {
+          "text": "Tell me about your workflow",
+          "href": "/#contact",
+          "inViewport": true
+        },
+        {
+          "text": "Call (210) 802-8945",
+          "href": "tel:+12108028945",
+          "inViewport": true
+        },
+        {
+          "text": "See the AI Tools Assessment",
+          "href": "/ai-tools-assessment-san-antonio/",
+          "inViewport": false
+        },
+        {
+          "text": "Tell me about your workflow",
+          "href": "/#contact",
+          "inViewport": false
+        },
+        {
+          "text": "Back to AI Consulting SA",
+          "href": "/",
+          "inViewport": false
+        },
+        {
+          "text": "ChatGPT optimization",
+          "href": "/chatgpt-optimization-san-antonio/",
+          "inViewport": false
+        },
+        {
+          "text": "Home",
+          "href": "/",
+          "inViewport": false
+        },
+        {
+          "text": "Do I need to pay for AI?",
+          "href": "/do-i-need-to-pay-for-ai-san-antonio/",
+          "inViewport": false
+        },
+        {
+          "text": "AI Tools Assessment",
+          "href": "/ai-tools-assessment-san-antonio/",
+          "inViewport": false
+        },
+        {
+          "text": "Document automation",
+          "href": "/ai-document-automation-san-antonio/",
+          "inViewport": false
+        },
+        {
+          "text": "Small business automation",
+          "href": "/small-business-automation-san-antonio/",
+          "inViewport": false
+        }
+      ],
+      "forms": [],
+      "scripts": []
+    },
+    {
+      "name": "phone-mobile",
+      "url": "https://aiconsultingsa.com/ai-phone-answering/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "AI Phone Answering San Antonio | From $250, No Contract",
+      "h1": [
+        "Stop letting good calls die in voicemail."
+      ],
+      "scrollWidth": 390,
+      "links": [
+        {
+          "text": "AI Consulting SA",
+          "href": "/",
+          "inViewport": true
+        },
+        {
+          "text": "AI Tools Assessment",
+          "href": "/ai-tools-assessment-san-antonio/",
+          "inViewport": true
+        },
+        {
+          "text": "Document automation",
+          "href": "/ai-document-automation-san-antonio/",
+          "inViewport": true
+        },
+        {
+          "text": "Small business automation",
+          "href": "/small-business-automation-san-antonio/",
+          "inViewport": true
+        },
+        {
+          "text": "ChatGPT optimization",
+          "href": "/chatgpt-optimization-san-antonio/",
+          "inViewport": true
+        },
+        {
+          "text": "Real costs",
+          "href": "/do-i-need-to-pay-for-ai-san-antonio/",
+          "inViewport": true
+        },
+        {
+          "text": "(210) 802-8945",
+          "href": "tel:+12108028945",
+          "inViewport": true
+        },
+        {
+          "text": "Tell me about your workflow",
+          "href": "/#contact",
+          "inViewport": true
+        },
+        {
+          "text": "Call (210) 802-8945",
+          "href": "tel:+12108028945",
+          "inViewport": true
+        },
+        {
+          "text": "See the AI Tools Assessment",
+          "href": "/ai-tools-assessment-san-antonio/",
+          "inViewport": false
+        },
+        {
+          "text": "Tell me about your workflow",
+          "href": "/#contact",
+          "inViewport": false
+        },
+        {
+          "text": "Back to AI Consulting SA",
+          "href": "/",
+          "inViewport": false
+        },
+        {
+          "text": "ChatGPT optimization",
+          "href": "/chatgpt-optimization-san-antonio/",
+          "inViewport": false
+        },
+        {
+          "text": "Home",
+          "href": "/",
+          "inViewport": false
+        },
+        {
+          "text": "Do I need to pay for AI?",
+          "href": "/do-i-need-to-pay-for-ai-san-antonio/",
+          "inViewport": false
+        },
+        {
+          "text": "AI Tools Assessment",
+          "href": "/ai-tools-assessment-san-antonio/",
+          "inViewport": false
+        },
+        {
+          "text": "Document automation",
+          "href": "/ai-document-automation-san-antonio/",
+          "inViewport": false
+        },
+        {
+          "text": "Small business automation",
+          "href": "/small-business-automation-san-antonio/",
+          "inViewport": false
+        }
+      ],
+      "forms": [],
+      "scripts": []
+    },
+    {
+      "name": "home-desktop",
+      "url": "https://aiconsultingsa.com/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "title": "San Antonio AI Consultant | Get Cited by ChatGPT, $500 Flat",
+      "h1": [
+        "ChatGPT is already recommending someone in San Antonio. I make sure it’s you."
+      ],
+      "scrollWidth": 1366,
+      "links": [
+        {
+          "text": "AI Consulting SA",
+          "href": "/",
+          "inViewport": true
+        },
+        {
+          "text": "Meet Dominic",
+          "href": "#meet-dominic",
+          "inViewport": true
+        },
+        {
+          "text": "The prescription",
+          "href": "#prescription",
+          "inViewport": true
+        },
+        {
+          "text": "How it works",
+          "href": "#process",
+          "inViewport": true
+        },
+        {
+          "text": "Proof",
+          "href": "#proof",
+          "inViewport": true
+        },
+        {
+          "text": "Questions",
+          "href": "#faq",
+          "inViewport": true
+        },
+        {
+          "text": "(210) 802-8945",
+          "href": "tel:+12108028945",
+          "inViewport": true
+        },
+        {
+          "text": "Share the workflow",
+          "href": "#contact",
+          "inViewport": true
+        },
+        {
+          "text": "Share the workflow",
+          "href": "#contact",
+          "inViewport": true
+        },
+        {
+          "text": "Call Dominic",
+          "href": "tel:+12108028945",
+          "inViewport": true
+        },
+        {
+          "text": "ChatGPT optimization",
+          "href": "/chatgpt-optimization-san-antonio/",
+          "inViewport": true
+        },
+        {
+          "text": "AI Tools Assessment",
+          "href": "/ai-tools-assessment-san-antonio/",
+          "inViewport": true
+        },
+        {
+          "text": "See the phone answering path",
+          "href": "/ai-phone-answering/",
+          "inViewport": false
+        },
+        {
+          "text": "See the document path",
+          "href": "/ai-document-automation-san-antonio/",
+          "inViewport": false
+        },
+        {
+          "text": "See the workflow path",
+          "href": "/small-business-automation-san-antonio/",
+          "inViewport": false
+        },
+        {
+          "text": "See the complete assessment",
+          "href": "/ai-tools-assessment-san-antonio/",
+          "inViewport": false
+        },
+        {
+          "text": "Share the workflow",
+          "href": "#contact",
+          "inViewport": false
+        },
+        {
+          "text": "Share the workflow",
+          "href": "#contact",
+          "inViewport": false
+        },
+        {
+          "text": "(210) 802-8945",
+          "href": "tel:+12108028945",
+          "inViewport": false
+        },
+        {
+          "text": "(210) 802-8945",
+          "href": "tel:+12108028945",
+          "inViewport": false
+        },
+        {
+          "text": "Do I need to pay?",
+          "href": "/do-i-need-to-pay-for-ai-san-antonio/",
+          "inViewport": false
+        },
+        {
+          "text": "AI Tools Assessment",
+          "href": "/ai-tools-assessment-san-antonio/",
+          "inViewport": false
+        },
+        {
+          "text": "Phone answering",
+          "href": "/ai-phone-answering/",
+          "inViewport": false
+        },
+        {
+          "text": "Document automation",
+          "href": "/ai-document-automation-san-antonio/",
+          "inViewport": false
+        },
+        {
+          "text": "Workflow automation",
+          "href": "/small-business-automation-san-antonio/",
+          "inViewport": false
+        },
+        {
+          "text": "Call",
+          "href": "tel:+12108028945",
+          "inViewport": false
+        },
+        {
+          "text": "Share the workflow",
+          "href": "#contact",
+          "inViewport": false
+        }
+      ],
+      "forms": [
+        {
+          "action": "/api/lead/",
+          "names": [
+            "_honey",
+            "name",
+            "business",
+            "email",
+            "phone",
+            "source",
+            "workflow"
+          ]
+        }
+      ],
+      "scripts": [
+        "https://aiconsultingsa.com/assets/index-DOD88tIV.js"
+      ]
+    }
+  ],
+  "tracking": {
+    "before": "https://aiconsultingsa.com/ai-phone-answering/?utm_source=outbound&utm_medium=email&utm_campaign=sa_auto_pilot",
+    "after": "https://aiconsultingsa.com/#contact",
+    "fields": [
+      {
+        "name": "_honey",
+        "value": ""
+      },
+      {
+        "name": "name",
+        "value": ""
+      },
+      {
+        "name": "business",
+        "value": ""
+      },
+      {
+        "name": "email",
+        "value": ""
+      },
+      {
+        "name": "phone",
+        "value": ""
+      },
+      {
+        "name": "source",
+        "value": ""
+      }
+    ],
+    "submitted": false
+  },
+  "limitations": [
+    "No form submitted; no phone link clicked; no real call or booking made."
+  ]
+}

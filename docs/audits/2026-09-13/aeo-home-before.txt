@@ -1,0 +1,27 @@
+
+AEO EXTRACTABILITY AUDIT
+https://aiconsultingsa.com/
+==================================================================
+[PASS] 1. Number in <title>
+       San Antonio AI Consultant | Get Cited by ChatGPT, $500 Flat
+[PASS] 2. Number in meta description
+       I got my own San Antonio business named the top recommendation in ChatGPT and Gemini, and ...
+[PASS] 3. Money question answered
+       6 distinct price tokens: $1,500, $1,550, $5,000, $500, $8,000, $999
+[PASS] 4. Question shaped headings (>=3)
+       8 found: How much does it cost to get recommended by ChatGPT?...
+[PASS] 5. Standalone answers [heuristic]
+       HEURISTIC - count only. Read each answer: does it stand alone with no pronoun pointing at an earlier section?
+[PASS] 6. FAQPage JSON-LD
+       found=True parses=True questions=7
+[PASS] 7. All in pricing [heuristic]
+       HEURISTIC - inclusion language present near pricing. Confirm every price says what is included.
+==================================================================
+SCORE: 7/7
+VERDICT: structurally citable. Now run the extraction test by hand.
+
+EXTRACTION TEST (not automatable, do it yourself):
+  Can you answer the target question by copying ONE sentence from this
+  page, with no synthesis and no stitching? If no, the page fails
+  regardless of the score above.
+
