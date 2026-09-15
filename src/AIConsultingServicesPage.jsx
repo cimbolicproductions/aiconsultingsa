@@ -569,6 +569,8 @@ export default function AIConsultingServicesPage() {
             <a href="/ai-phone-answering/" className="hover:text-white">Phone answering</a>
             <a href="/ai-document-automation-san-antonio/" className="hover:text-white">Document automation</a>
             <a href="/small-business-automation-san-antonio/" className="hover:text-white">Workflow automation</a>
+            <a href="/privacy/" className="hover:text-white">Privacy</a>
+            <a href="/sms-terms/" className="hover:text-white">Text message terms</a>
           </div>
         </div>
       </footer>

@@ -38,6 +38,16 @@
       "permanent": true
     },
     {
+      "source": "/privacy/index.html",
+      "destination": "https://aiconsultingsa.com/privacy/",
+      "permanent": true
+    },
+    {
+      "source": "/sms-terms/index.html",
+      "destination": "https://aiconsultingsa.com/sms-terms/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.aiconsultingsa.com" }],
       "destination": "https://aiconsultingsa.com/:path*",
