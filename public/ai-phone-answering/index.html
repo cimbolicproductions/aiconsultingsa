@@ -720,7 +720,12 @@
                 placeholder="Roughly how many calls you think get missed, when they happen, who calls people back today, and what phone or shop software you already use."
               ></textarea>
             </label>
-            <button type="submit">Send this to Dominic</button>
+            <div data-lead-challenge>
+              <div data-challenge-widget></div>
+              <p role="status" aria-live="polite">Loading verification...</p>
+              <noscript>Enable JavaScript to verify this form, or call (210) 802-8945.</noscript>
+            </div>
+            <button type="submit" disabled>Send this to Dominic</button>
             <p class="form-note">
               This form sends your message through a server route to our email provider. Do not include passwords, protected personal information, or customer data. Sending it does not activate a service or book a repair appointment.
             </p>
@@ -755,5 +760,6 @@
     </footer>
 
     <script src="/campaign-fields.js" defer></script>
+    <script src="/lead-challenge.js" defer></script>
   </body>
 </html>

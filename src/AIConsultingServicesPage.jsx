@@ -544,7 +544,12 @@ export default function AIConsultingServicesPage() {
                     className="mt-2 w-full resize-y rounded-xl border border-stone-300 bg-[#fffdf8] px-4 py-3 font-normal text-slate-950 outline-none focus:border-orange-700 focus:ring-2 focus:ring-orange-100"
                   />
                 </label>
-                <button type="submit" className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange-800 px-6 py-3.5 font-semibold text-white hover:bg-orange-900">
+                <div data-lead-challenge className="mt-5">
+                  <div data-challenge-widget></div>
+                  <p role="status" aria-live="polite" className="mt-2 text-sm text-slate-600">Loading verification...</p>
+                  <noscript>Enable JavaScript to verify this form, or call (210) 802-8945.</noscript>
+                </div>
+                <button type="submit" disabled className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange-800 px-6 py-3.5 font-semibold text-white hover:bg-orange-900 disabled:opacity-60">
                   Send the workflow to Dominic <ArrowRight className="h-5 w-5" />
                 </button>
                 <p className="mt-4 text-sm leading-6 text-slate-500">

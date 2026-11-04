@@ -388,12 +388,18 @@
               If you could wave a magic wand and delete one process, what would it be?
               <textarea name="workflow" required placeholder="Tell me how it works today, how often it happens, and where the work gets stuck."></textarea>
             </label>
-            <button type="submit">Send the workflow to Dominic</button>
+            <div data-lead-challenge>
+              <div data-challenge-widget></div>
+              <p role="status" aria-live="polite">Loading verification...</p>
+              <noscript>Enable JavaScript to verify this form, or call (210) 802-8945.</noscript>
+            </div>
+            <button type="submit" disabled>Send the workflow to Dominic</button>
             <p class="form-note">This form sends your message through a server route to our email provider. Do not include passwords, protected personal information, or sensitive customer data.</p>
           </form>
         </section>
       </main>
     </div>
     <script type="module" src="/src/main.jsx"></script>
+    <script src="/lead-challenge.js" defer></script>
   </body>
 </html>

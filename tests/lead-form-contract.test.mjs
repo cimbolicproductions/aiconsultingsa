@@ -18,6 +18,7 @@ const emailEnvironmentKeys = [
   'LEAD_RECIPIENT_EMAIL',
   'RESEND_API_KEY',
   'RESEND_FROM_EMAIL',
+  'TURNSTILE_SECRET_KEY',
 ];
 
 async function readPublicSources() {
@@ -32,6 +33,7 @@ function validLeadRequest(overrides = {}) {
     phone: '',
     workflow: 'A repeated manual workflow that needs review.',
     _honey: '',
+    'cf-turnstile-response': 'verified-test-token',
     ...overrides,
   });
 
@@ -52,11 +54,11 @@ async function withAcceptingProvider(run, providerResult) {
   const priorFetch = globalThis.fetch;
   const requests = [];
   configureEmailEnvironment();
-  globalThis.fetch = async (url, options) => {
+  globalThis.fetch = withVerifiedChallenge(async (url, options) => {
     requests.push({ url, options });
     if (providerResult) return providerResult();
     return Response.json({ data: [{ id: 'internal-message' }, { id: 'customer-message' }] });
-  };
+  });
 
   try {
     return await run({ leadFunction, requests });
@@ -89,6 +91,18 @@ function configureEmailEnvironment() {
   process.env.LEAD_RECIPIENT_EMAIL = 'recipient@example.com';
   process.env.RESEND_API_KEY = 're_test_key';
   process.env.RESEND_FROM_EMAIL = 'AI Consulting SA <hello@aiconsultingsa.com>';
+  process.env.TURNSTILE_SECRET_KEY = 'test-only-secret';
+}
+
+// Existing delivery tests use a verified challenge fixture. Separate challenge
+// tests below exercise rejection and provider outages before any email send.
+function withVerifiedChallenge(provider) {
+  return async (url, options) => {
+    if (url === 'https://challenges.cloudflare.com/turnstile/v0/siteverify') {
+      return Response.json({ success: true, hostname: 'aiconsultingsa.com', action: 'lead' });
+    }
+    return provider(url, options);
+  };
 }
 
 test('public website copy does not impose a 2 to 20 employee limit', async () => {
@@ -166,10 +180,10 @@ test('lead API does not redirect to success when Resend fails', async () => {
   const priorEnvironment = rememberEmailEnvironment();
   const priorFetch = globalThis.fetch;
   configureEmailEnvironment();
-  globalThis.fetch = async () => Response.json({
+  globalThis.fetch = withVerifiedChallenge(async () => Response.json({
     name: 'validation_error',
     message: 'Provider unavailable',
-  }, { status: 422 });
+  }, { status: 422 }));
 
   try {
     const response = await leadFunction.fetch(validLeadRequest());
@@ -214,9 +228,9 @@ test('lead API reports a Resend network error without claiming success', async (
   const priorEnvironment = rememberEmailEnvironment();
   const priorFetch = globalThis.fetch;
   configureEmailEnvironment();
-  globalThis.fetch = async () => {
+  globalThis.fetch = withVerifiedChallenge(async () => {
     throw new Error('simulated connection failure');
-  };
+  });
 
   try {
     const response = await leadFunction.fetch(validLeadRequest());
@@ -234,7 +248,7 @@ test('lead API rejects a malformed Resend success response', async () => {
   const priorEnvironment = rememberEmailEnvironment();
   const priorFetch = globalThis.fetch;
   configureEmailEnvironment();
-  globalThis.fetch = async () => Response.json({ data: [{ id: 'only-one-email' }] });
+  globalThis.fetch = withVerifiedChallenge(async () => Response.json({ data: [{ id: 'only-one-email' }] }));
 
   try {
     const response = await leadFunction.fetch(validLeadRequest());
@@ -252,10 +266,10 @@ test('lead API sends an internal notification and customer confirmation through 
   const priorFetch = globalThis.fetch;
   const requests = [];
   configureEmailEnvironment();
-  globalThis.fetch = async (url, options) => {
+  globalThis.fetch = withVerifiedChallenge(async (url, options) => {
     requests.push({ url, options });
     return Response.json({ data: [{ id: 'internal-message' }, { id: 'customer-message' }] });
-  };
+  });
 
   try {
     const request = validLeadRequest({
@@ -435,7 +449,7 @@ test('the retry key tracks service interest and ignores campaign changes', async
   });
 });
 
-test('a submission without JavaScript gets a server rendered service specific confirmation', async () => {
+test('a verified html-mode submission gets a server rendered service specific confirmation', async () => {
   await withAcceptingProvider(async ({ leadFunction }) => {
     const response = await leadFunction.fetch(validLeadRequest({
       service_interest: 'phone_reception',
@@ -494,7 +508,7 @@ test('a honeypot submission never reaches the email provider', async () => {
   });
 });
 
-test('the phone page ships a working no-JavaScript inquiry path', async () => {
+test('the phone page ships the protected inquiry form and phone fallback', async () => {
   const source = await readFile('public/ai-phone-answering/index.html', 'utf8');
 
   assert.match(source, /<form[^>]*id="phone-fit-form"/);
