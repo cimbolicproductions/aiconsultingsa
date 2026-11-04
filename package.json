@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test:lead-form": "node --test tests/lead-form-contract.test.mjs tests/lead-challenge.test.mjs"
+    "test:lead-form": "node --test tests/lead-form-contract.test.mjs tests/lead-challenge.test.mjs tests/lead-loader.test.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.562.0",
