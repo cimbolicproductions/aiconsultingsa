@@ -45,6 +45,11 @@ minimum. Configuration/script errors show a phone alternative. JavaScript is
 required for Turnstile; noscript visitors get that explanation and phone number.
 The API still rejects direct submissions without a verified token.
 
+The async API script uses Cloudflare's documented `onload` query callback,
+registered before inserting the script. Do not call `turnstile.ready()` from
+an async/defer script's load handler: the live provider rejects that combination.
+The loader regression test models that restriction and delayed initialization.
+
 ## Verification
 
 `npm run test:lead-form`: existing delivery/attribution tests plus server challenge

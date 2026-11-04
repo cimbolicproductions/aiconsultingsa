@@ -10,11 +10,14 @@
       if (typeof siteKey !== 'string' || !siteKey) throw new Error('Missing site key');
       await new Promise((resolve, reject) => {
         const script = document.createElement('script');
-        script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+        script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onLeadTurnstileLoad';
         script.async = true;
-        const timeout = setTimeout(() => reject(new Error('Verification load timed out')), 15000);
-        script.onload = () => { clearTimeout(timeout); window.turnstile.ready(resolve); };
-        script.onerror = () => { clearTimeout(timeout); reject(new Error('Verification load failed')); };
+        const fail = (message) => { delete window.onLeadTurnstileLoad; reject(new Error(message)); };
+        const timeout = setTimeout(() => fail('Verification load timed out'), 15000);
+        // Cloudflare's ready() API rejects async/defer scripts. Its documented
+        // onload callback runs after the async API has initialized instead.
+        window.onLeadTurnstileLoad = () => { clearTimeout(timeout); delete window.onLeadTurnstileLoad; resolve(); };
+        script.onerror = () => { clearTimeout(timeout); fail('Verification load failed'); };
         document.head.append(script);
       });
       return siteKey;
