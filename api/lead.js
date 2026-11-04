@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import process from 'node:process';
+import { verifyLeadChallenge } from './_utils/leadChallenge.js';
 
 const siteOrigin = 'https://aiconsultingsa.com';
 const homeSuccessUrl = `${siteOrigin}/?submitted=true#contact`;
@@ -369,6 +370,9 @@ export default {
     if (lead.name.length < 2 || lead.business.length < 2 || !isValidEmail(lead.email) || lead.workflow.length < 10) {
       return htmlResponse(400, 'Check the form', 'Name, business, a valid email, and a clear workflow description are required.');
     }
+
+    const challenge = await verifyLeadChallenge(formData);
+    if (challenge.status !== 200) return htmlResponse(challenge.status, 'Verification needed', challenge.message);
 
     const deliveryBatch = createDeliveryBatch({ lead, service, recipient, sender });
     let providerResponse;
