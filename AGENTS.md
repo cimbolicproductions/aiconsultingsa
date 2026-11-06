@@ -15,6 +15,12 @@ npm run dev
 
 ## Project Notes
 
+- P119 lives at `/local-visibility-audit/`. `AUDIT_STRIPE_PRICE_ID` is the one checkout gate. All payment and fulfillment secrets stay server-only; no `VITE_` secrets. Missing runtime configuration keeps checkout visibly closed.
+- `server/audit.mjs` owns the fixed $79 USD price check, signed Stripe webhooks, paid-only intake, durable queue in Checkout Session metadata, and Resend report delivery. It verifies paid status, exact price/quantity/mode, and rejects refunded or disputed charges before intake/delivery. Preview and queue require a separate 32+ character fulfillment token.
+- Juno checks `/local-visibility-audit/fulfillment/` daily. Stripe is the durable order queue, including paid orders awaiting intake; `[AUDIT ORDER]` email notices are secondary. Report delivery includes inline HTML plus an HTML attachment with both optional offer slots. Missing upsell links render unavailable text, never fake checkout links.
+- Keep Stripe intake-save and delivery-claim idempotency keys stable per order. Resend delivery keys are stable per order, with a saved payload hash. Unconfirmed sending attempts older than 23 hours stop for provider reconciliation before the 24-hour idempotency boundary. Provider acceptance is not inbox receipt.
+- P119 verification: `npm run test:audit`, existing `npm run test:lead-form`, `npm run lint`, `npm run build`, and real browser inspection of built static pages. Real Stripe sandbox and email receipts must be recorded separately from injected provider test doubles. Runbook and sample: `docs/local-visibility-audit/`.
+
 - Production domain: `https://aiconsultingsa.com`
 - Public crawl files live in `public/robots.txt` and `public/sitemap.xml`.
 - Vercel canonical redirects live in `vercel.json`.
