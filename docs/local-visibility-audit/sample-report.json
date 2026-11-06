@@ -1,0 +1,19 @@
+{
+  "checkedOn": "2026-11-04",
+  "verdict": "You win when a buyer already knows your name. You are hard to find when they do not. Branded search is strong; generic buyer search is where the money leaks.",
+  "findings": [
+    { "title": "Branded search", "status": "STRONG", "evidence": "In Juno's supplied November 4 sample, the query 'washer and dryer rental San Antonio RentwashersSA' put rentwasherssa.com first. The page answered the money questions: $60 monthly set, no credit check, free delivery and installation, repairs included, six month minimum, and first payment at delivery. This is the dated sample, not a new live ranking check." },
+    { "title": "Generic buyer search", "status": "WEAK", "evidence": "For 'rent a washer and dryer near me San Antonio no credit check delivery', RentwashersSA did not appear in the top results Juno sampled. Quack Rentals held multiple positions and Two Step Laundry also appeared." },
+    { "title": "AI discovery", "status": "REAL, BUT NARROW", "evidence": "Juno's sample reports real customers who found RentwashersSA through ChatGPT, including one who said it was the only company surfaced. Other customers reported Google. These are customer reports, not an instrumented conversion count or a guarantee from a test prompt." },
+    { "title": "Trust signals", "status": "COMPETITOR EDGE", "evidence": "The sample's top generic competitor showed a physical address and review counts in the 200 range. Where real review proof appears on the site is a fixable gap." },
+    { "title": "Pricing consistency", "status": "REVIEW NEEDED", "evidence": "Juno's sample flagged location based service pricing differences. The audit flags the inconsistency for review; the owner decides whether the difference is intentional and which price applies." }
+  ],
+  "fixes": [
+    "Build pages that answer the generic buyer queries directly.",
+    "Put real review proof on the homepage and rental page where customers compare.",
+    "Keep one clear pricing story across the site, Google profile and posts.",
+    "Keep the branded page that already works."
+  ],
+  "worthMath": "One additional rental at $60 monthly represents about $720 in gross revenue over a year, before costs. The audit covers its cost only if the contribution from resulting additional business exceeds $79. No new booking is promised.",
+  "sourcingNote": "This is the RentwashersSA sample supplied by Juno, dated November 4, 2026. Its described sources are the live searches sampled on that date, the business and competitor pages as crawled, and real customer discovery records. This fixture does not represent a fresh independent recheck. Replace it with the actual evidence and source record for each customer's audit."
+}
